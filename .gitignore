@@ -90,6 +90,8 @@ dist
 
 # vuepress build output
 .vuepress/dist
+# vuepress临时目录
+.temp
 
 # Serverless directories
 .serverless/
