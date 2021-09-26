@@ -8,7 +8,7 @@ module.exports = {
   title: 'atips',
   description: '整理开发笔记、技巧、文档等',
   head: [['link', { rel: 'icon', href: '/images/icons/favicon.ico' }]],
-  // base: '/atips/', //基础路径
+  base: '/atips/', //基础路径
   // markdown拓展
   // markdown: {
   //   lineNumbers: true //显示代码块行号
@@ -17,8 +17,6 @@ module.exports = {
   themeConfig: {
     // home: '/',
     // logo: '/images/icons/favicon.ico',
-    // search: true, //搜索框
-    // searchMaxSuggestions: 10, //搜索结果数量
     // 导航栏
     navbar: [
       { text: 'Home', link: '/' },
