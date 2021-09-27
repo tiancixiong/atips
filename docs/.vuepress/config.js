@@ -22,8 +22,21 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'Web', link: '/web/' },
       {
+        text: '其他软件',
+        children: [
+          {
+            text: 'Git',
+            link: '/software/git/'
+          }
+        ]
+      },
+      {
         text: '关于',
         children: [
+          {
+            text: '仓库',
+            link: 'https://github.com/tiancixiong/atips/'
+          },
           {
             text: '站长',
             link: '//blog.xiongtianci.com/'
@@ -31,7 +44,7 @@ module.exports = {
         ]
       }
     ],
-    repo: 'tiancixiong/atips', //仓库URL
+    // repo: 'tiancixiong/atips', //仓库URL
     // 侧边栏
     sidebar: 'auto', //自动生成侧栏
     // displayAllHeaders: false,
