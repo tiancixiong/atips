@@ -7,7 +7,7 @@ module.exports = {
   lang: 'zh-CN',
   title: 'atips',
   description: '整理开发笔记、技巧、文档等',
-  head: [['link', { rel: 'icon', href: '/images/icons/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: './images/icons/favicon.ico' }]],
   base: '/atips/', //基础路径
   // markdown拓展
   // markdown: {
