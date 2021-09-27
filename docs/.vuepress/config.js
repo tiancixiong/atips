@@ -22,6 +22,15 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'Web', link: '/web/' },
       {
+        text: 'IDE',
+        children: [
+          {
+            text: 'IDEA',
+            link: '/software/idea/'
+          }
+        ]
+      },
+      {
         text: '其他软件',
         children: [
           {
