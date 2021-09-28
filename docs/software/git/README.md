@@ -4,7 +4,7 @@
 
 Commit Message应包括三个部分：Header（**必需**），Body（可选）和 Footer（可选）。
 
-```markdown
+```markdown{1}
 <type>(<scope>): <subject>
 // 空一行
 <body>
@@ -32,7 +32,7 @@ Header 部分只有一行，包括三个字段：`type`（必需）、`scope`（
 
 `type` 用于说明 commit 的*类别*，只允许使用下面7个标识：
 
-```markdown
+```markdown{2,3,7}
 feat：新功能（feature）
 fix：修补bug
 docs：文档（documentation）
