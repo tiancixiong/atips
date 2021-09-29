@@ -96,7 +96,7 @@ module.exports = {
     editLink: true,
     editLinkText: '在 GitHub 上编辑此页',
     docsBranch: 'master',
-    docsDir: 'atips',
+    docsDir: 'docs',
     lastUpdated: true, //最后更新时间
     lastUpdatedText: '上次更新',
     contributors: true, //展示贡献者
