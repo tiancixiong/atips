@@ -1,5 +1,28 @@
 const sidebar = {
-
+  ide: [
+    {
+      text: 'IDE',
+      collapsable: false,
+      children: [
+        '/software/ide/idea/',
+      ]
+    }
+  ],
+  vcs: [
+    {
+      text: '版本控制',
+      collapsable: false,
+      children: [
+        {
+          text: 'Git',
+          children: [
+            '/software/vcs/git-commit/',
+            '/software/vcs/git-branch/',
+          ]
+        },
+      ]
+    },
+  ],
 }
 
 // VuePress配置
@@ -22,20 +45,20 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'Web', link: '/web/' },
       {
-        text: 'IDE',
+        text: '开发工具',
         children: [
           {
-            text: 'IDEA',
-            link: '/software/idea/'
+            text: 'IDE',
+            link: '/software/ide/idea/'
           }
         ]
       },
       {
-        text: '其他软件',
+        text: '其他',
         children: [
           {
-            text: 'Git',
-            link: '/software/git/'
+            text: 'VCS',
+            link: '/software/vcs/git-commit/'
           }
         ]
       },
@@ -55,13 +78,20 @@ module.exports = {
     ],
     // repo: 'tiancixiong/atips', //仓库URL
     // 侧边栏
-    sidebar: 'auto', //自动生成侧栏
+    // sidebar: 'auto', //自动生成侧栏
+    sidebarDepth: 2, //提取子标题的层级
     // displayAllHeaders: false,
-    // sidebar: [
-    //   '/',
-    //   '/page-a',
-    //   ['/page-b', 'Explicit link text']
-    // ],
+    sidebar: {
+      collapsable: false,
+      '/web/': [
+        {
+          text: '前端',
+          children: ['/web/'],
+        },
+      ],
+      '/software/ide/': sidebar.ide,
+      '/software/vcs/': sidebar.vcs,
+    },
     lastUpdated: true, //最后更新时间
     lastUpdatedText: '上次更新'
   },

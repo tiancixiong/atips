@@ -1,13 +1,15 @@
-# 教程
+# IDEA
+
+## 教程
 
 - 官网：[https://www.jetbrains.com/help/idea/getting-help.html](https://www.jetbrains.com/help/idea/getting-help.html)
 - [IntelliJ-IDEA-Tutorial](https://cdk8s.gitbook.io/github/)
 
 
 
-# 快捷键
+## 快捷键
 
-## 官方快捷键文档
+### 官方文档
 
 1、IntelliJ IDEA 查看官方快捷键文档：Help -> Keymap Reference
 
