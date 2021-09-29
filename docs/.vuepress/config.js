@@ -40,6 +40,7 @@ module.exports = {
   themeConfig: {
     // home: '/',
     // logo: '/images/icons/favicon.ico',
+    repo: 'tiancixiong/atips', //仓库URL
     // 导航栏
     navbar: [
       { text: 'Home', link: '/' },
@@ -62,21 +63,20 @@ module.exports = {
           }
         ]
       },
-      {
-        text: '关于',
-        children: [
-          {
-            text: '仓库',
-            link: 'https://github.com/tiancixiong/atips/'
-          },
-          {
-            text: '站长',
-            link: '//blog.xiongtianci.com/'
-          }
-        ]
-      }
+      // {
+      //   text: '关于',
+      //   children: [
+      //     {
+      //       text: '仓库',
+      //       link: 'https://github.com/tiancixiong/atips/'
+      //     },
+      //     {
+      //       text: '站长',
+      //       link: '//blog.xiongtianci.com/'
+      //     }
+      //   ]
+      // }
     ],
-    // repo: 'tiancixiong/atips', //仓库URL
     // 侧边栏
     // sidebar: 'auto', //自动生成侧栏
     sidebarDepth: 2, //提取子标题的层级
@@ -92,8 +92,16 @@ module.exports = {
       '/software/ide/': sidebar.ide,
       '/software/vcs/': sidebar.vcs,
     },
+    // 编辑此页
+    editLink: true,
+    editLinkText: '在 GitHub 上编辑此页',
+    docsBranch: 'master',
+    docsDir: 'atips',
     lastUpdated: true, //最后更新时间
-    lastUpdatedText: '上次更新'
+    lastUpdatedText: '上次更新',
+    contributors: true, //展示贡献者
+    contributorsText: '贡献者',
+    toggleDarkMode: '切换夜间模式',
   },
   plugins: [
     [
