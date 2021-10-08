@@ -1,17 +1,33 @@
 const sidebar = {
   ide: [
     {
-      text: 'IDE',
-      collapsable: false,
+      text: 'IDEA',
       children: [
-        '/software/ide/idea/',
+        {
+          text: '基础教程',
+          children: [
+            '/software/ide/idea/basic-course/',
+            '/software/ide/idea/basic-course/debug-skills/',
+          ]
+        },
+        {
+          text: '实用技巧',
+          children: [
+            '/software/ide/idea/practical-skills/',
+          ]
+        },
+        {
+          text: '疑难杂症',
+          children: [
+            '/software/ide/idea/difficult-cases/',
+          ]
+        },
       ]
     }
   ],
   vcs: [
     {
       text: '版本控制',
-      collapsable: false,
       children: [
         {
           text: 'Git',
@@ -50,7 +66,12 @@ module.exports = {
         children: [
           {
             text: 'IDE',
-            link: '/software/ide/idea/'
+            children: [
+              {
+                text: 'IDEA',
+                link: '/software/ide/idea/basic-course/'
+              },
+            ]
           }
         ]
       },
@@ -59,7 +80,12 @@ module.exports = {
         children: [
           {
             text: 'VCS',
-            link: '/software/vcs/git-commit/'
+            children: [
+              {
+                text: 'Git',
+                link: '/software/vcs/git-commit/'
+              },
+            ]
           }
         ]
       },
