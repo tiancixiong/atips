@@ -60,34 +60,174 @@
 
 
 
-## 远程调试 TODO
+## 远程调试
 
 > 官方文档：[Remote debug](https://www.jetbrains.com/help/idea/tutorial-remote-debug.html)
 
 ### 准备工作
 
-- 明确远程服务器的 IP 地址
-- 关掉服务器防火墙：`service iptables stop`
+- 明确远程服务器的 IP 地址。这里演示使用`localhost`
+- 关掉服务器防火墙：`service iptables stop`。演示使用的是window环境，通过 控制面板->防火墙 关闭。
+
+创建演示项目`test_2110`，编写一个返回String类型的get请求
+
+1、使用idea进行创建后，在 `pom.xml` 中引入springboot有关依赖：
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+
+构建工具：
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+```
+
+打包方式选择jar
+
+```xml
+<groupId>com.example</groupId>
+<artifactId>test_2110</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+<name>test_2110</name>
+<description>练习IDEA远程debug功能</description>
+<packaging>jar</packaging>
+```
+
+在 `application.yml` 中配置服务端口：
+
+```yml
+server:
+  port: 8099
+```
+
+2、启动类
+
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+```
+
+3、在Controller中编写一个get接口
+
+```java
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/hello")
+public class HelloController {
+    @GetMapping("/getTitle")
+    public String getStr(String str) {
+        System.out.println("str = " + str);
+        return "Hello, " + str;
+    }
+}
+```
+
+4、使用maven打包，在项目目录的 `target` 目录中生成 jar 包
 
 
 
 ### 本地配置
 
-首先，配置`remote`：
+IDEA中设置远程调试，点击 `Edit Configurations` 进入 `Run/Debug Configuration` 界面
+
+![image-20211009141011294](/atips/images/software/image-20211009141011294.png)
+
+然后点击左上角的 `+` ，选择 `Remote` 后在右侧设置属性：
+
+![image-20211009133025343](/atips/images/software/image-20211009133025343.png)
+
+- **标注 1**：调试模式，默认为`Attach`
+  - `Attach`：调试服务端（被调试远程运行的机器）启动一个端口等待我们（调试客户端）去连接
+  - `Listen`：我们（调试客户端）去监听一个端口，当调试服务端准备好了，就会进行连接
+  
+- **标注 2**：传输方式，默认为`Socket`
+  
+  - `Socket`：macOS 及 Linux 系统使用此种传输方式
+  - `Shared memory`： Windows 系统使用此种传输方式
+  
+- **标注 3**：服务器 IP 地址，默认为`localhost`，需要修改为目标服务器的真实 IP 地址
+
+- **标注 4**：服务器端口号，默认为`5005`，需要修改为目标服务器的真实端口号
+
+- **标注 5**：运行远程 JVM 的命令行参数
+
+  - ```md
+    -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
+    ```
+
+  - ```md
+    -agentlib:jdwp=transport=dt_shmem,server=y,suspend=n,address=...
+    ```
 
 
 
-### 服务器 Tomcat 配置
 
+### 服务器配置
 
+#### 1.对于 SpringBoot
+
+由于笔者演示的服务器是本地的windows，而在上述参数中 **标注 2** 选择默认的 `Socket` 方式。这里就需要用 **Git Bath** 进行启动：
+
+```shell
+java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar test_2110-0.0.1-SNAPSHOT.jar
+```
 
 ---
 
-如果运行的实例在其它机器（或者虚拟机、docker）上，只要实例设置了以下参数，就可以通过远程调试连接到`8000`端口进行调试。
+由于 **标注 2** 选择默认的 `Socket` 方式，在windows中如果使用黑窗口启动就会一直报错：`ERROR: transport error 202: gethostbyname: unknown host`
 
-```
--Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=y
-```
+![Snipaste_2021-10-09_13-20-17](images/Snipaste_2021-10-09_13-20-17.png)
 
-对于IDEA来说，只需要在**Run** -> **Edit Configuration**里，增加一个**Remote**，设置主机**Host**和端口**Port**，然后调试它即可。
+
+
+#### 2.对于 Tomcat
+
+命令行参数，然后导入到 Tomcat 的配置文件（Linux路径：`tomcat/bin/catalina.sh`，Windows路径：`catalina.bat`）中。
+
+在该配置文件的最上面，添加我们刚刚复制的那句话
+
+- Linux：`export JAVA_OPTS='-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005'`
+
+- Windows：`set JAVA_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=...`
+
+
+
+### 开始调试
+
+服务器启动好后，启动本地 Remote Server
+
+![image-20211009160827580](/atips/images/software/image-20211009160827580.png)
+
+如果连接成功，则会出现如下提示：
+
+![image-20211009161153071](/atips/images/software/image-20211009161153071.png)
+
+---
+
+前提是本机得有项目的源码 ，在需要的地方打个断点，然后访问一个**远程的url**，断点就会停下来。
 
