@@ -1,5 +1,5 @@
 const sidebar = {
-  ide: [
+  software_ide: [
     {
       text: 'IDEA',
       children: [
@@ -25,7 +25,7 @@ const sidebar = {
       ]
     }
   ],
-  vcs: [
+  software_other: [
     {
       text: '版本控制',
       children: [
@@ -36,6 +36,12 @@ const sidebar = {
             '/software/vcs/git-branch/',
           ]
         },
+      ]
+    },
+    {
+      text: '调试工具',
+      children: [
+        '/software/postman/',
       ]
     },
   ],
@@ -72,36 +78,22 @@ module.exports = {
                 link: '/software/ide/idea/basic-course/'
               },
             ]
-          }
-        ]
-      },
-      {
-        text: '其他',
-        children: [
+          },
           {
-            text: 'VCS',
+            text: '其他',
             children: [
               {
                 text: 'Git',
                 link: '/software/vcs/git-commit/'
               },
+              {
+                text: 'Postman',
+                link: '/software/postman/'
+              },
             ]
           }
         ]
       },
-      // {
-      //   text: '关于',
-      //   children: [
-      //     {
-      //       text: '仓库',
-      //       link: 'https://github.com/tiancixiong/atips/'
-      //     },
-      //     {
-      //       text: '站长',
-      //       link: '//blog.xiongtianci.com/'
-      //     }
-      //   ]
-      // }
     ],
     // 侧边栏
     // sidebar: 'auto', //自动生成侧栏
@@ -115,8 +107,8 @@ module.exports = {
           children: ['/web/'],
         },
       ],
-      '/software/ide/': sidebar.ide,
-      '/software/vcs/': sidebar.vcs,
+      '/software/ide/': sidebar.software_ide,
+      '/software/': sidebar.software_other,
     },
     // 编辑此页
     editLink: true,
