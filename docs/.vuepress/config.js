@@ -1,4 +1,12 @@
 const sidebar = {
+  java_jvm: [
+    {
+      text: 'JVM相关',
+      children: [
+        '/java/jvm/java-jvm-agent-arthas/',
+      ]
+    }
+  ],
   software_ide: [
     {
       text: 'IDEA',
@@ -66,6 +74,19 @@ module.exports = {
     // 导航栏
     navbar: [
       { text: 'Home', link: '/' },
+      {
+        text: 'Java', children: [
+          {
+            text: 'Java进阶 - JVM相关',
+            children: [
+              {
+                text: 'Java 调试排错相关',
+                link: '/java/jvm/java-jvm-agent-arthas/'
+              }
+            ]
+          },
+        ]
+      },
       { text: 'Web', link: '/web/' },
       {
         text: '开发工具',
@@ -100,7 +121,7 @@ module.exports = {
     sidebarDepth: 2, //提取子标题的层级
     // displayAllHeaders: false,
     sidebar: {
-      collapsable: false,
+      '/java/jvm/': sidebar.java_jvm,
       '/web/': [
         {
           text: '前端',
