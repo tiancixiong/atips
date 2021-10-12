@@ -42,6 +42,7 @@ const sidebar = {
           children: [
             '/software/vcs/git-commit/',
             '/software/vcs/git-branch/',
+            '/software/vcs/git-ignore/',
           ]
         },
       ]
