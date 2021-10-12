@@ -92,6 +92,9 @@ dist
 .vuepress/dist
 # vuepress临时目录
 .temp
+# image只能放在 .vuepress/public 目录下
+/**/images/
+!/**/.vuepress/public/images/
 
 # Serverless directories
 .serverless/
