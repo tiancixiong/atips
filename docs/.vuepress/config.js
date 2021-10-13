@@ -54,6 +54,20 @@ const sidebar = {
       ]
     },
   ],
+  about: [
+    {
+      text: '关于',
+      children: [
+        '/about/about-me/'
+      ]
+    },
+    {
+      text: '关于 - 本站点',
+      children: [
+        '/about/site/site-build/'
+      ]
+    },
+  ],
 }
 
 // VuePress配置
@@ -71,7 +85,7 @@ module.exports = {
   themeConfig: {
     // home: '/',
     // logo: '/images/icons/favicon.ico',
-    repo: 'tiancixiong/atips', //仓库URL
+    // repo: 'tiancixiong/atips', //仓库URL
     // 导航栏
     navbar: [
       { text: 'Home', link: '/' },
@@ -116,6 +130,7 @@ module.exports = {
           }
         ]
       },
+      { text: '关于', link: '/about/about-me/' }
     ],
     // 侧边栏
     // sidebar: 'auto', //自动生成侧栏
@@ -131,10 +146,12 @@ module.exports = {
       ],
       '/software/ide/': sidebar.software_ide,
       '/software/': sidebar.software_other,
+      '/about/': sidebar.about
     },
     // 编辑此页
     editLink: true,
     editLinkText: '在 GitHub 上编辑此页',
+    docsRepo: 'https://github.com/tiancixiong/atips',
     docsBranch: 'master',
     docsDir: 'docs',
     lastUpdated: true, //最后更新时间
