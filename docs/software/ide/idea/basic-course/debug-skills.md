@@ -2,7 +2,6 @@
 
 > 以下内容基于的环境：Windows10、IntelliJ IDEA 2019.3
 >
-> 官方文档：[Debug code](https://www.jetbrains.com/help/idea/debugging-code.html)
 
 ## 按钮介绍
 
@@ -36,16 +35,49 @@
 
 
 
+## 断点类型
+
+断点有四种类型：
+
+1. 行断点（Line Breakpoints）：最经常用的方式， 可以设置在任何可执行的代码行上 
+2. 方法断点（Method Breakpoints）： 在进入或退出指定的方法或其实现之一时挂起程序，允许您检查方法的进入/退出条件
+3. 字段断点（Field Watchpoints）： 当指定的字段被读取或写入时，挂起程序。需要注意的是，默认只有写才会停下，想要让读取时也停下，需要右击断点，在**Watch**的**Field access**上打勾才行
+4. 异常断点（Exception Breakpoints）： 当抛出Throwable或其子类时挂起程序 。可以在 **Run — View Breakpoints** 中的 Java Exception Breakpoints 里添加异常的具体类型。这样的话，程序中一旦发生了这种异常马上就会停下来
+
+---
+
+断点图标的[类型](https://www.jetbrains.com/help/idea/using-breakpoints.html#breakpoint-types)和[状态](https://www.jetbrains.com/help/idea/using-breakpoints.html#breakpoint-statuses)：
+
+![img](/atips/images/software/image-20211014210420999.png)
+
+
+
+### 字段断点
+
+在 IDEA 中为某个字段添加断点，当字段值有修改时，可以自动跳到相应方法位置。
+
+在字段定义地方 鼠标左键 添加断点（会出现「眼睛」的图标），在眼睛」图标上鼠标右键，然后在弹框中勾选上 `Field access` 和 `Field modification` 两个选项。
+
+![image-20211014203737311](/atips/images/software/image-20211014203737311.png)
+
+- **Condition**：定义断点进入条件
+- **Field access**：字段被 `read` 时进行断点
+- **Field modification**：字段被 `writte` 时进行断点
+
+
+
+
+
 ## 条件断点
 
-点击`View Breakpoints`![image-20211008131605522](/atips/images/software/image-20211008131605522.png)按钮可进行设置进入断点的条件，如下图所示
+点击 `View Breakpoints` ![image-20211008131605522](/atips/images/software/image-20211008131605522.png)按钮可进行设置进入断点的条件，如下图所示
 
 ![image-20211008141205676](/atips/images/software/image-20211008141205676.png)
 
 - **标注 1**：`View Breakpoints`，查看断点，展示更多高级设置
 - **标注 2**：`Java Line Breakpoints`，展示项目中设置的所有断点
 - **标注 3**：`Conditions`，设置条件断点（右键单击断点处也可进行设置）
-- **标注 4**：`Remove once hit`，设置击中一次断点后，取消该断点
+- **标注 4**：`Remove once hit`，临时断点，就是只断一次，一次之后断点就自动消失了，不用手动取消
 - **标注 5**：`Pass count `，设置当循环若干次后，进入断点，常用于循环语句
 
 
@@ -57,6 +89,28 @@
 如下面所示，此条件确保调试器仅在当前线程的名称为 **线程2** 时才暂停当前线程
 
 ![image-20211008153010240](/atips/images/software/image-20211008153010240.png)
+
+
+
+## 断点处添加 log
+
+在调试代码时希望打印一些内容。通过代码 `print` 的方式在调试完后还需要删除掉，防止提交到线上。
+
+IDEA 提供  `Evaluate and Log at Breakpoints`  功能可以帮助我们解决这个问题。
+
+在正常加断点的地方使用 `Shift + 鼠标左键` 添加外观是黄色的断点，并弹出选项。
+
+![image-20211014201735696](/atips/images/software/image-20211014201735696.png)
+
+勾选上 `Evaluate and log`，输入想查看的 log/变量，以 *Debug* 模式运行程序（正常模式运行，不会打印这些 log）。
+
+其他选项：
+
+- **"Breakpoint hit" message**：在断点触发了会打印一条日志消息，如 `Breakpoint reached at ocean.Whale.main(Whale.java:5)`；
+- **Stack trace**：堆栈跟踪，会同时打印队栈信息；
+- **Evaluate and log**：计算表达式，将结果输出到控制台。这个表达式不仅可以是一般变量或参数，也可以是方法，当你的一行代码中调用了几个方法时，就可以通过这种方式查看查看某个方法的返回值。
+
+
 
 
 
@@ -201,7 +255,7 @@ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar tes
 
 由于 **标注 2** 选择默认的 `Socket` 方式，在windows中如果使用黑窗口启动就会一直报错：`ERROR: transport error 202: gethostbyname: unknown host`
 
-![Snipaste_2021-10-09_13-20-17](images/Snipaste_2021-10-09_13-20-17.png)
+![image-20211014101455014](/atips/images/software/image-20211014101455014.png)
 
 
 
@@ -230,4 +284,13 @@ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar tes
 ---
 
 前提是本机得有项目的源码 ，在需要的地方打个断点，然后访问一个**远程的url**，断点就会停下来。
+
+
+
+## 参考资料
+
+- 官方文档：[Debug code](https://www.jetbrains.com/help/idea/debugging-code.html)
+- [IDEA的Debug技巧](https://www.cnblogs.com/csh24/p/14724135.html) - 博客园
+- [在Intellij IDEA中使用Debug](https://www.cnblogs.com/chiangchou/p/idea-debug.html) - 博客园
+- [Intellij IDEA 调试魔法](https://segmentfault.com/a/1190000040017745) - 公众号
 
