@@ -5,24 +5,24 @@
 
 ## 按钮介绍
 
-![image-20211008132848557](/atips/images/software/image-20211008132848557.png)
+![image-20211008132848557](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008132848557.png)
 
 | 按钮                                                         | 名称                       | 说明                                                         | win快捷键        |
 | ------------------------------------------------------------ | -------------------------- | ------------------------------------------------------------ | ---------------- |
-| ![image-20211008113026757](/atips/images/software/image-20211008113026757.png) | Show Execution Point       | 跳转到当前执行端点。                                         | Alt + F10        |
-| ![image-20211008112923775](/atips/images/software/image-20211008112923775.png) | Step Over                  | 步过，一行一行地往下走。如果这一行上有调用方法，执行时不会进入方法。 | F8               |
-| ![image-20211008113141117](/atips/images/software/image-20211008113141117.png) | Step Into                  | 步入，进入代码或者说进入到方法内部。                         | F7               |
-| ![image-20211008113156179](/atips/images/software/image-20211008113156179.png) | Force Step Into            | 强制步入，强制进入代码或者说进入到方法内部。能进入任何方法，查看底层源码的时候可以用这个进入官方类库的方法。 | Alt + Shift + F7 |
-| ![image-20211008113222794](/atips/images/software/image-20211008113222794.png) | Step Out                   | 步出，跳到下一个断点或者跳出方法。从步入的方法内退出到方法调用处，此时方法已执行完毕，只是还没有完成赋值。 | Shift + F8       |
-| ![image-20211008113236857](/atips/images/software/image-20211008113236857.png) | Drop Frame                 | 回退断点。回退到当前方法的调用处。                           |                  |
-| ![image-20211008113248420](/atips/images/software/image-20211008113248420.png) | Run to Cursor              | 运行到光标处。你可以将光标定位到你需要查看的那一行，然后使用这个功能，代码会运行至光标行，而不需要打断点。 | Alt + F9         |
-| ![image-20211008113312307](/atips/images/software/image-20211008113312307.png) | Evaluate Expression        | 表达式评估。可以改变变量的值，这样有时候就能很方便我们去调试各种值的情况了。 | Alt + F8         |
-| ![image-20211008113325993](/atips/images/software/image-20211008113325993.png) | Trace Current Stream Chain | 流式编程调试插件，对 Stream API 的调试。属于IDEA自带的插件。 |                  |
+| ![image-20211008113026757](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008113026757.png) | Show Execution Point       | 跳转到当前执行端点。                                         | Alt + F10        |
+| ![image-20211008112923775](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008112923775.png) | Step Over                  | 步过，一行一行地往下走。如果这一行上有调用方法，执行时不会进入方法。 | F8               |
+| ![image-20211008113141117](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008113141117.png) | Step Into                  | 步入，进入代码或者说进入到方法内部。                         | F7               |
+| ![image-20211008113156179](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008113156179.png) | Force Step Into            | 强制步入，强制进入代码或者说进入到方法内部。能进入任何方法，查看底层源码的时候可以用这个进入官方类库的方法。 | Alt + Shift + F7 |
+| ![image-20211008113222794](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008113222794.png) | Step Out                   | 步出，跳到下一个断点或者跳出方法。从步入的方法内退出到方法调用处，此时方法已执行完毕，只是还没有完成赋值。 | Shift + F8       |
+| ![image-20211008113236857](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008113236857.png) | Drop Frame                 | 回退断点。回退到当前方法的调用处。                           |                  |
+| ![image-20211008113248420](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008113248420.png) | Run to Cursor              | 运行到光标处。你可以将光标定位到你需要查看的那一行，然后使用这个功能，代码会运行至光标行，而不需要打断点。 | Alt + F9         |
+| ![image-20211008113312307](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008113312307.png) | Evaluate Expression        | 表达式评估。可以改变变量的值，这样有时候就能很方便我们去调试各种值的情况了。 | Alt + F8         |
+| ![image-20211008113325993](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008113325993.png) | Trace Current Stream Chain | 流式编程调试插件，对 Stream API 的调试。属于IDEA自带的插件。 |                  |
 |                                                              |                            |                                                              |                  |
-| ![image-20211008155114989](/atips/images/software/image-20211008155114989.png) | Resume Program             | 恢复程序运行，直至下个断点或程序运行结束                     | F9               |
-| ![image-20211008131605522](/atips/images/software/image-20211008131605522.png) | View Breakpoints           | 查看断点，展示更多高级设置                                   |                  |
-| ![image-20211008131629572](/atips/images/software/image-20211008131629572.png) | Mute Breakpoints           | 置灰所有断点，再次点击，恢复                                 |                  |
-| ![image-20211008131700999](/atips/images/software/image-20211008131700999.png) | Get thread dunp            | 获得当前的线程堆栈                                           |                  |
+| ![image-20211008155114989](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008155114989.png) | Resume Program             | 恢复程序运行，直至下个断点或程序运行结束                     | F9               |
+| ![image-20211008131605522](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008131605522.png) | View Breakpoints           | 查看断点，展示更多高级设置                                   |                  |
+| ![image-20211008131629572](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008131629572.png) | Mute Breakpoints           | 置灰所有断点，再次点击，恢复                                 |                  |
+| ![image-20211008131700999](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008131700999.png) | Get thread dunp            | 获得当前的线程堆栈                                           |                  |
 
 ---
 
@@ -48,7 +48,7 @@
 
 断点图标的[类型](https://www.jetbrains.com/help/idea/using-breakpoints.html#breakpoint-types)和[状态](https://www.jetbrains.com/help/idea/using-breakpoints.html#breakpoint-statuses)：
 
-![img](/atips/images/software/image-20211014210420999.png)
+![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211014210420999.png)
 
 
 
@@ -58,7 +58,7 @@
 
 在字段定义地方 鼠标左键 添加断点（会出现「眼睛」的图标），在眼睛」图标上鼠标右键，然后在弹框中勾选上 `Field access` 和 `Field modification` 两个选项。
 
-![image-20211014203737311](/atips/images/software/image-20211014203737311.png)
+![image-20211014203737311](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211014203737311.png)
 
 - **Condition**：定义断点进入条件
 - **Field access**：字段被 `read` 时进行断点
@@ -70,9 +70,9 @@
 
 ## 条件断点
 
-点击 `View Breakpoints` ![image-20211008131605522](/atips/images/software/image-20211008131605522.png)按钮可进行设置进入断点的条件，如下图所示
+点击 `View Breakpoints` ![image-20211008131605522](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008131605522.png)按钮可进行设置进入断点的条件，如下图所示
 
-![image-20211008141205676](/atips/images/software/image-20211008141205676.png)
+![image-20211008141205676](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008141205676.png)
 
 - **标注 1**：`View Breakpoints`，查看断点，展示更多高级设置
 - **标注 2**：`Java Line Breakpoints`，展示项目中设置的所有断点
@@ -88,7 +88,7 @@
 
 如下面所示，此条件确保调试器仅在当前线程的名称为 **线程2** 时才暂停当前线程
 
-![image-20211008153010240](/atips/images/software/image-20211008153010240.png)
+![image-20211008153010240](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211008153010240.png)
 
 
 
@@ -100,7 +100,7 @@ IDEA 提供  `Evaluate and Log at Breakpoints`  功能可以帮助我们解决�
 
 在正常加断点的地方使用 `Shift + 鼠标左键` 添加外观是黄色的断点，并弹出选项。
 
-![image-20211014201735696](/atips/images/software/image-20211014201735696.png)
+![image-20211014201735696](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211014201735696.png)
 
 勾选上 `Evaluate and log`，输入想查看的 log/变量，以 *Debug* 模式运行程序（正常模式运行，不会打印这些 log）。
 
@@ -209,11 +209,11 @@ public class HelloController {
 
 IDEA中设置远程调试，点击 `Edit Configurations` 进入 `Run/Debug Configuration` 界面
 
-![image-20211009141011294](/atips/images/software/image-20211009141011294.png)
+![image-20211009141011294](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211009141011294.png)
 
 然后点击左上角的 `+` ，选择 `Remote` 后在右侧设置属性：
 
-![image-20211009133025343](/atips/images/software/image-20211009133025343.png)
+![image-20211009133025343](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211009133025343.png)
 
 - **标注 1**：调试模式，默认为`Attach`
   - `Attach`：调试服务端（被调试远程运行的机器）启动一个端口等待我们（调试客户端）去连接
@@ -255,7 +255,7 @@ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar tes
 
 由于 **标注 2** 选择默认的 `Socket` 方式，在windows中如果使用黑窗口启动就会一直报错：`ERROR: transport error 202: gethostbyname: unknown host`
 
-![image-20211014101455014](/atips/images/software/image-20211014101455014.png)
+![image-20211014101455014](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211014101455014.png)
 
 
 
@@ -275,11 +275,11 @@ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar tes
 
 服务器启动好后，启动本地 Remote Server
 
-![image-20211009160827580](/atips/images/software/image-20211009160827580.png)
+![image-20211009160827580](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211009160827580.png)
 
 如果连接成功，则会出现如下提示：
 
-![image-20211009161153071](/atips/images/software/image-20211009161153071.png)
+![image-20211009161153071](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211009161153071.png)
 
 ---
 

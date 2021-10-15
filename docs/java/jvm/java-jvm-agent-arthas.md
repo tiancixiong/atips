@@ -39,7 +39,7 @@ java -jar arthas-boot.jar
 
 [dashboard](https://arthas.aliyun.com/doc/dashboard.html#dashboard) 命令可以查看当前系统的实时数据面板。
 
-![dashboard](/atips/images/java/jvm/java-jvm-agent-arthas-dashboard.png)
+![dashboard](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/jvm/java-jvm-agent-arthas-dashboard.png)
 
 面板中 **Thread** 各数据说明：
 

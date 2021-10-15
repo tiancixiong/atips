@@ -13,7 +13,9 @@ release: 预发布分支。从develop分支分出。发布正式版本之前，�
 fixbug: 修补bug分支。从master分支分出。
 ```
 
-![git-model](https://nvie.com/img/git-model@2x.png)
+![image-20211015094523203](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/git-model@2x.png)
+
+
 
 
 
