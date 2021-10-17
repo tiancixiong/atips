@@ -1,11 +1,17 @@
 const sidebar = {
-  java_jvm: [
+  java: [
     {
-      text: 'JVM相关',
+      text: 'Java 基础',
+      children: [
+        '/java/basic/java-basic-oop/',
+      ]
+    },
+    {
+      text: 'JVM 相关',
       children: [
         '/java/jvm/java-jvm-agent-arthas/',
       ]
-    }
+    },
   ],
   software_ide: [
     {
@@ -92,6 +98,15 @@ module.exports = {
       {
         text: 'Java', children: [
           {
+            text: 'Java 基础',
+            children: [
+              {
+                text: 'Java 面向对象',
+                link: '/java/basic/java-basic-oop/'
+              }
+            ]
+          },
+          {
             text: 'Java进阶 - JVM相关',
             children: [
               {
@@ -137,7 +152,7 @@ module.exports = {
     sidebarDepth: 2, //提取子标题的层级
     // displayAllHeaders: false,
     sidebar: {
-      '/java/jvm/': sidebar.java_jvm,
+      '/java/': sidebar.java,
       '/web/': [
         {
           text: '前端',
