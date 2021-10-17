@@ -3,6 +3,10 @@ home: true
 heroImage: /images/logo.jpg
 heroText: atips
 tagline: 同学同道，终身相习 ✌
+actions:
+  - text: 快速开始
+    link: /java/basic/java-basic-oop/
+    type: primary
 footer: MIT Licensed | Copyright © 2021
 ---
 
