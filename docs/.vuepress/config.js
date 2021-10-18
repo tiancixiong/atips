@@ -49,6 +49,7 @@ const sidebar = {
             '/software/vcs/git-commit/',
             '/software/vcs/git-branch/',
             '/software/vcs/git-ignore/',
+            '/software/vcs/git-flight-rules/',
           ]
         },
       ]
