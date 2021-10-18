@@ -37,8 +37,8 @@ git merge --no-ff develop
 
 
 
-## 文档
+## 参考文献
 
-- 阮一峰 - [Git分支管理策略](https://www.ruanyifeng.com/blog/2012/07/git.html)
+- [Git分支管理策略](https://www.ruanyifeng.com/blog/2012/07/git.html) - 阮一峰
 - [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/) - 英文
 
