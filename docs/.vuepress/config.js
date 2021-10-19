@@ -4,6 +4,7 @@ const sidebar = {
       text: 'Java 基础',
       children: [
         '/java/basic/java-basic-oop/',
+        '/java/basic/java-basic-grammar/',
       ]
     },
     {
