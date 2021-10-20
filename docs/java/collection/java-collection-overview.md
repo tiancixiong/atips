@@ -24,7 +24,7 @@
 
 ## Collection
 
-![java-collection-hierarchy](images/java-collection-hierarchy.jpeg)
+![java-collection-hierarchy](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/java-collection-hierarchy.jpeg)
 
 ### Set
 
@@ -74,7 +74,7 @@
 
 ## Map
 
-![map-class-hierarchy](images/map-class-hierarchy.jpg)
+![map-class-hierarchy](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/map-class-hierarchy.jpg)
 
 ### TreeMap
 
