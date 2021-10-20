@@ -95,6 +95,7 @@ dist
 # image只能放在 .vuepress/public 目录下
 /**/images/
 !/**/.vuepress/public/images/
+/**/img/
 
 # Serverless directories
 .serverless/
