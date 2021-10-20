@@ -8,6 +8,13 @@ const sidebar = {
       ]
     },
     {
+      text: 'Java 集合框架',
+      children: [
+        '/java/collection/java-collection-overview/',
+        '/java/collection/java-collection-arraylist/',
+      ]
+    },
+    {
       text: 'JVM 相关',
       children: [
         '/java/jvm/java-jvm-agent-arthas/',
@@ -105,6 +112,10 @@ module.exports = {
               {
                 text: 'Java 面向对象',
                 link: '/java/basic/java-basic-oop/'
+              },
+              {
+                text: 'Java 集合框架',
+                link: '/java/collection/java-collection-overview/'
               }
             ]
           },
