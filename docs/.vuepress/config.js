@@ -12,6 +12,7 @@ const sidebar = {
       children: [
         '/java/collection/java-collection-overview/',
         '/java/collection/java-collection-arraylist/',
+        '/java/collection/java-collection-linkedlist/',
       ]
     },
     {
