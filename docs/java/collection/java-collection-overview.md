@@ -1,24 +1,39 @@
 # 集合类体系
 
+程序开发中数据结构可以分为这八类：数组、链表、栈、队列、散列表、树、堆、图。
+
+![image-20211021102338258](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/image-20211021102338258.png)
+
+其中，数组、链表、散列表、树是程序开发直接或者间接用到的最多的。相关的对应实现类可以包括如下：
+
+| 类型   | 实现           | 文章 |
+| ------ | -------------- | ---- |
+| 数组   | ArrayList      |      |
+| 链表   | LinkedList     |      |
+| 树     | 2-3 树、红黑树 |      |
+| 散列表 | HashMap        |      |
+| 栈     | Stack          |      |
+| 队列   | Queue、Deque   |      |
+
+---
+
+`java.util` 库提供了一套相当完整的集合类（collection classes）来实现这些结构，其中基本的类
+型有 List 、Set 、Queue 和 Map。这些类型也被称作容器类（container classes）。
+
 ![java_collections_overview](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/java_collections_overview.png)
 
 ![collection-classes](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/collection-classes.jpg)
 
+容器主要包括 *Collection* 和 *Map* 两种，*Collection* 存储着对象的集合，而 *Map* 存储着键值对(两个对象)的映射表。
 
-
-`java.util` 库提供了一套相当完整的集合类（collection classes）来解决这个问题，其中基本的类
-型有 List 、Set 、Queue 和 Map。这些类型也被称作容器类（container classes）。
-
-容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对(两个对象)的映射表。
-
-1. 集合(Collection)：一个独立元素的序列，这些元素都服从一条或多条规则。List 必须以插入
-的顺序保存元素，Set 不能包含重复元素，Queue 按照排队规则来确定对象产生的顺序（通常与
+1. 集合(*Collection*)：一个独立元素的序列，这些元素都服从一条或多条规则。*List* 必须以插入
+的顺序保存元素，*Set* 不能包含重复元素，*Queue* 按照排队规则来确定对象产生的顺序（通常与
 它们被插入的顺序相同）；
-2. 映射(Map)：一组成对的 **键值对** 对象，允许使用键来查找值。ArrayList 使用数字来查找对
-象，因此在某种意义上讲，它是将数字和对象关联在一起。map 允许我们使用一个对象来查找另
+2. 映射(*Map*)：一组成对的 **键值对** 对象，允许使用键来查找值。*ArrayList* 使用数字来查找对
+象，因此在某种意义上讲，它是将数字和对象关联在一起。*Map* 允许我们使用一个对象来查找另
 一个对象，它也被称作关联数组（associative array），因为它将对象和其它对象关联在一起；或
 者称作字典（dictionary），因为可以使用一个键对象来查找值对象，就像在字典中使用单词查找
-定义一样。Map 是强大的编程工具。
+定义一样。
 
 
 
@@ -91,3 +106,10 @@
 ### LinkedHashMap
 
 使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用(LRU)顺序。
+
+
+
+## 参考文献
+
+- [JCFInternals](https://github.com/CarpenterLee/JCFInternals) - GitHub@CarpenterLee
+

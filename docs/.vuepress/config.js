@@ -13,6 +13,7 @@ const sidebar = {
         '/java/collection/java-collection-overview/',
         '/java/collection/java-collection-arraylist/',
         '/java/collection/java-collection-linkedlist/',
+        '/java/collection/java-collection-stack&queue/',
       ]
     },
     {
