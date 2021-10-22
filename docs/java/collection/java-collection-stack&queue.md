@@ -259,6 +259,8 @@ private void doubleCapacity() {
 }
 ```
 
+
+
 上面就是进行两倍扩容 `n << 1`，同时把两端数据迁移进新的数组的部分。下面通过一个例子来模拟一下这个过程。
 
 ```java
@@ -280,47 +282,328 @@ public void test_arraycopy() {
     elements[tail] = "h";
     tail = (tail + 1) & (elements.length - 1);
 
-    System.out.println("head：" + head);
-    System.out.println("tail：" + tail);
+    System.out.println(String.format("head(头节点)：%s", head));
+    System.out.println(String.format("tail(尾节点)：%s", tail));
 
     int p = head;
     int n = elements.length;
     int r = n - p; // number of elements to the right of p
 
     // 输出当前的元素
-    System.out.println(JSON.toJSONString(elements));
+    System.out.println(String.format("原容器：%s", JSON.toJSONString(elements)));
 
     // head == tail 扩容
     Object[] a = new Object[8 << 1];
     System.arraycopy(elements, p, a, 0, r);
-    System.out.println(JSON.toJSONString(a));
+    System.out.println(String.format("第一次迁移后新容器：%s", JSON.toJSONString(a)));
     System.arraycopy(elements, 0, a, r, p);
-    System.out.println(JSON.toJSONString(a));
+    System.out.println(String.format("第二次迁移后新容器：%s", JSON.toJSONString(a)));
 
     elements = a;
     head = 0;
     tail = n;
-    a[head = (head - 1) & (a.length - 1)] = "i";
-    System.out.println(JSON.toJSONString(a));
 }
 ```
 
 以上的测试过程主要模拟了8个长度的空间的数组，在进行双端队列操作时数组扩容，数据迁移操作，可以单独运行，测试结果如下：
 
 ```
-head：4
-tail：4
-["e","f","g","h","d","c","b","a"]
-["d","c","b","a",null,null,null,null,null,null,null,null,null,null,null,null]
-["d","c","b","a","e","f","g","h",null,null,null,null,null,null,null,null]
-["d","c","b","a","e","f","g","h",null,null,null,null,null,null,null,"i"]
+head(头节点)：4
+tail(尾节点)：4
+原容器：["e","f","g","h","d","c","b","a"]
+第一次迁移后新容器：["d","c","b","a",null,null,null,null,null,null,null,null,null,null,null,null]
+第二次迁移后新容器：["d","c","b","a","e","f","g","h",null,null,null,null,null,null,null,null]
 ```
 
 从测试结果可以看到；
 1. 当 head 与 tail 相等时，进行扩容操作；
-2. 第一次数据迁移 `System.arraycopy(elements, p, a, 0, r);`，d 、c 、 b 、 a ，落入新数组；
-3. 第二次数据迁移 `System.arraycopy(elements, 0, a, r, p);`，e 、f 、 g 、 h ，落入新数组；
-4. 最后再尝试添加新的元素， i 和 j 。每一次的输出结果都可以看到整个双端链路的变化。
+2. 第一次数据迁移 `System.arraycopy(elements, p, a, 0, r);`，将 elements(原容器) 从其 p节点(head头节点) 开始复制至 a(新容器) 的 0节点，复制长度是 r(p节点右侧所有元素)；d 、c 、 b 、 a ，落入新数组；
+3. 第二次数据迁移 `System.arraycopy(elements, 0, a, r, p);` ，e 、f 、 g 、 h ，落入新数组。
+
+
+
+## 双端队列 LinkedList
+
+*[LinkedList](https://blog.xiongtianci.com/atips/java/collection/java-collection-linkedlist.html)* 天生就可以支持双端队列，而且从头尾取数据也是它时间复杂度 *O(1)* 的。同时数据的插入和删除也不需要像数组队列那样拷贝数据，虽然 *Linkedlist* 有这些优点，但不能说 *ArrayDeque* 因为有数组复制性能比它低。
+*LinkedList* 数据结构：
+
+![image-20211022123909718](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/image-20211022123909718.png)
+
+*LinkedList* 也提供了 `push()`、`add()` 等一组头尾插入元素的函数，与使用 *ArrayDeque* 是一样的，功能上没有差异。
+
+
+
+### 源码分析
+
+**压栈(头插)**：`push()`、`offerFirst()` 和 `addFirst()`，底层都是调用了 `linkFirst()` 进行操作。
+
+```java
+// java.util.LinkedList
+private void linkFirst(E e) {
+    final Node<E> f = first;
+    final Node<E> newNode = new Node<>(null, e, f);
+    first = newNode;
+    if (f == null)
+        last = newNode;
+    else
+        f.prev = newNode;
+    size++;
+    modCount++;
+}
+```
+
+**压栈(尾插)**：`add()`、`offerLast()` 和 `addLast()`，底层都是调用 `linkLast()` 实现操作。
+
+```java
+// java.util.LinkedList
+void linkLast(E e) {
+    final Node<E> l = last;
+    final Node<E> newNode = new Node<>(l, e, null);
+    last = newNode;
+    if (l == null)
+        first = newNode;
+    else
+        l.next = newNode;
+    size++;
+    modCount++;
+}
+```
+
+- `linkFirst()` 、 `linkLast()`，两个方法分别是给链表的首尾节点插入元素，因为这是链表结构，所以也不存在扩容，只需要把双向链路链接上即可。
+
+
+
+## 延时队列 DelayQueue
+
+有个场景，是需要把一些数据存起来，*倒计时*到某个时刻在使用。在 Java 的队列数据结构中，还有一种队列是**延时队列**，可以通过设定存放时间，依次轮训获取。 
+
+*DelayQueue* 是一个支持延时获取元素的无界阻塞队列。队列使用 *PriorityQueue* 来实现。队列中的元素必须实现 *Delayed* 接口，在创建元素时可以指定多久才能从队列中获取当前元素。只有在延迟期满时才能从队列中提取元素。我们可以将 *DelayQueue* 运用在以下应用场景：
+
+1. 缓存系统的设计：可以用 *DelayQueue* 保存缓存元素的有效期，使用一个线程循环查询 *DelayQueue*，一旦能从 *DelayQueue* 中获取元素时，表示缓存有效期到了；
+2. 定时任务调度：使用 *DelayQueue* 保存当天将会执行的任务和执行时间，一旦从 *DelayQueue* 中获取到任务就开始执行；比如 *TimerQueue* 就是使用 *DelayQueue* 实现的。
+
+
+
+### 基本使用
+
+先写一个 Delayed 的实现类：
+
+```java
+import java.util.concurrent.Delayed;
+import java.util.concurrent.TimeUnit;
+
+public class TestDelayed implements Delayed {
+    private String str;
+    private long time;
+
+    @Override
+    public long getDelay(TimeUnit unit) {
+        return time - System.currentTimeMillis();
+    }
+
+    @Override
+    public int compareTo(Delayed o) {
+        TestDelayed work = (TestDelayed) o;
+        long diff = this.time - work.time;
+        if (diff <= 0)
+            return -1;
+        else
+            return 1;
+    }
+
+    public String getStr() {
+        return str;
+    }
+
+    public TestDelayed(String str, long time, TimeUnit unit) {
+        this.str = str;
+        this.time = System.currentTimeMillis() + (time > 0 ? unit.toMillis(time) : 0);
+    }
+}
+```
+
+- 这个相当于延时队列的一个固定模版方法，通过这种方式来控制延时。
+
+下面通过一个案例简单使用一下：
+
+```java
+public class DelayedDemo {
+    private final static Logger logger = LoggerFactory.getLogger(DelayedDemo.class);
+    @Test
+    public void test_DelayQueue() throws InterruptedException {
+        DelayQueue<TestDelayed> delayQueue = new DelayQueue<TestDelayed>();
+        delayQueue.offer(new TestDelayed("aaa", 5, TimeUnit.SECONDS)); //休眠5s
+        delayQueue.offer(new TestDelayed("ccc", 1, TimeUnit.SECONDS)); //休眠1s
+        delayQueue.offer(new TestDelayed("bbb", 3, TimeUnit.SECONDS)); //休眠3s
+        
+        logger.info("开始执行");
+        logger.info(((TestDelayed) delayQueue.take()).getStr());
+        logger.info(((TestDelayed) delayQueue.take()).getStr());
+        logger.info(((TestDelayed) delayQueue.take()).getStr());
+    }
+}
+```
+
+结果：
+
+```
+13:19:27.614 [main] INFO com.example.demo.DelayedDemo - 开始执行
+13:19:28.616 [main] INFO com.example.demo.DelayedDemo - ccc
+13:19:30.612 [main] INFO com.example.demo.DelayedDemo - bbb
+13:19:32.612 [main] INFO com.example.demo.DelayedDemo - aaa
+```
+
+- 队列中的元素不会因为存放的先后顺序而导致输出顺序，它们是依赖于休眠时长决定。
+
+
+
+### 源码分析
+
+#### 元素入栈
+
+**入栈**：
+
+- `offer(E e, long timeout, TimeUnit unit)`
+
+```java
+// java.util.concurrent.DelayQueue
+private final PriorityQueue<E> q = new PriorityQueue<E>();
+public boolean offer(E e) {
+    final ReentrantLock lock = this.lock;
+    lock.lock();
+    try {
+        q.offer(e);
+        if (q.peek() == e) {
+            leader = null;
+            available.signal();
+        }
+        return true;
+    } finally {
+        lock.unlock();
+    }
+}
+
+// java.util.PriorityQueue
+public boolean offer(E e) {
+    if (e == null)
+        throw new NullPointerException();
+    modCount++;
+    int i = size;
+    if (i >= queue.length)
+        grow(i + 1);
+    size = i + 1;
+    if (i == 0)
+        queue[0] = e;
+    else
+        siftUp(i, e);
+    return true;
+}
+private void siftUp(int k, E x) {
+    if (comparator != null)
+        siftUpUsingComparator(k, x);
+    else
+        siftUpComparable(k, x);
+}
+private void siftUpUsingComparator(int k, E x) {
+    while (k > 0) {
+        int parent = (k - 1) >>> 1;
+        Object e = queue[parent];
+        if (comparator.compare(x, (E) e) >= 0)
+            break;
+        queue[k] = e;
+        k = parent;
+    }
+    queue[k] = x;
+}
+```
+
+- 关于数据存放还涉及到 `ReentrantLock` 可重入锁；
+- `DelayQueue` 是基于数组实现的，所以可以动态扩容，另外它插入元素的顺序并不影响最终的输出顺序；
+- 而元素的排序依赖于 `compareTo` 方法进行排序，也就是休眠的时间长短决定的；
+- 同时只有实现了 `Delayed` 接口，才能存放元素。
+
+
+
+#### 元素出栈
+
+**出栈**：
+
+- `take()`
+
+```java
+// java.util.concurrent.DelayQueue
+public E take() throws InterruptedException {
+    final ReentrantLock lock = this.lock;
+    lock.lockInterruptibly();
+    try {
+        for (;;) {
+            E first = q.peek(); //获取队首元素
+            if (first == null)
+                available.await(); //如果队首元素为空，则无限期等待唤醒
+            else {
+                long delay = first.getDelay(NANOSECONDS);
+                if (delay <= 0)
+                    return q.poll(); //超时时间已到，直接从队列中出队并返回元素
+                first = null; // don't retain ref while waiting；等待时不要持有引用
+                // 如果leader不为null,说明有其他线程在操作，则等待唤醒
+                if (leader != null)
+                    available.await();
+                else {
+                    Thread thisThread = Thread.currentThread();
+                    // 超时时间未到，且leader为空，则leader设置为当前线程
+                    leader = thisThread;
+                    try {
+                        // 超时等待
+                        available.awaitNanos(delay);
+                    } finally {
+                        if (leader == thisThread)
+                            leader = null; //释放leader
+                    }
+                }
+            }
+        }
+    } finally {
+        // 队列不为空，且leader为空，则需要唤醒其它可能等待的消费线程，
+        // 重新竞争锁，然后从挂起处继续执行
+        if (leader == null && q.peek() != null)
+            available.signal();
+        lock.unlock(); //最后释放锁
+    }
+}
+```
+
+- 这部分的代码主要是元素的获取。 *DelayQueue* 是 *Leader-Followr* 模式的变种，消费者线程处于等待 *await* 时，总是等待最先休眠完成的元素；
+- 这里会最小化的空等时间，提高线程利用率。
+
+
+
+
+
+---
+
+参考：[从DelayQueue到 Leader-follower线程模型](https://crrrrrw.github.io/java-concurrency/delayqueue-leaderfollower/)、[Java同步数据结构之DelayQueue/DelayedWorkQueue](https://www.cnblogs.com/txmfz/p/10338334.html)
+
+
+
+## 其他队列
+
+### 队列类结构
+
+![image-20211022153714538](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/image-20211022153714538.png)
+
+| 类型  | 实现                  | 描述                                   |
+| ----- | --------------------- | -------------------------------------- |
+| Queue | LinkedBlockingQueue   | 由链表结构组成的有界阻塞队列           |
+| Queue | ArrayBlockingQueue    | 由数组结构组成的有界阻塞队列           |
+| Queue | PriorityBlockingQueue | 支持优先级排序的无界阻塞队列           |
+| Queue | SynchronousQueue      | 不存储元素的阻塞队列                   |
+| Queue | LinkedTransferQueue   | 由链表结构组成的无界阻塞队列           |
+| Deque | LinkedBlockingDeque   | 由链表结构组成的双向阻塞队列           |
+| Deque | ConcurrentLinkedDeque | 由链表结构组成的线程安全的双向阻塞队列 |
+
+
+
+### 基本使用
 
 
 
@@ -329,3 +612,4 @@ tail：4
 ## 参考文献
 
 - 《Java 面经手册》- 小傅哥
+
