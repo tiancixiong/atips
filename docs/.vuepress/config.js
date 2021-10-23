@@ -14,6 +14,7 @@ const sidebar = {
         '/java/collection/java-collection-arraylist/',
         '/java/collection/java-collection-linkedlist/',
         '/java/collection/java-collection-stack&queue/',
+        '/java/collection/java-collection-set/',
       ]
     },
     {
