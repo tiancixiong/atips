@@ -1,19 +1,19 @@
 # 集合类体系
 
-程序开发中数据结构可以分为这八类：数组、链表、栈、队列、散列表、树、堆、图。
+程序开发中数据结构可以分为这八类：数组(Array)、链表(Linked)、栈(Stack)、队列(Queue)、散列表(Hash)、树(Tree)、堆(Heap)、图(Graph)。
 
 ![image-20211021102338258](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/image-20211021102338258.png)
 
 其中，数组、链表、散列表、树是程序开发直接或者间接用到的最多的。相关的对应实现类可以包括如下：
 
-| 类型   | 实现           | 文章 |
-| ------ | -------------- | ---- |
-| 数组   | ArrayList      |      |
-| 链表   | LinkedList     |      |
-| 树     | 2-3 树、红黑树 |      |
-| 散列表 | HashMap        |      |
-| 栈     | Stack          |      |
-| 队列   | Queue、Deque   |      |
+| 类型   | 实现           |
+| ------ | -------------- |
+| 数组   | ArrayList      |
+| 链表   | LinkedList     |
+| 树     | 2-3 树、红黑树 |
+| 散列表 | HashMap        |
+| 栈     | Stack          |
+| 队列   | Queue、Deque   |
 
 ---
 
