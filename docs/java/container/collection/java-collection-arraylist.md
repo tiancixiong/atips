@@ -6,7 +6,7 @@
 
 *ArrayList* 实现了 *List* 接口，是顺序容器，即元素存放的数据与放进去的顺序相同，允许放入 `null` 元素，底层通过**数组实现**。
 
-![image-20211020091551051](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/image-20211020091551051.png)
+![image-20211020091551051](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211020091551051.png)
 
 
 
@@ -70,7 +70,7 @@ public ArrayList(int initialCapacity) {
 
 扩容操作最终是通过 `grow()` 方法完成的。得到的新容量等于旧容量的 1.5 倍。
 
-![image-20211020095730582](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/image-20211020095730582.png)
+![image-20211020095730582](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211020095730582.png)
 
 图中介绍了当 List 结合可用空间长度不足时则需要扩容，在 ArrayList 中主要包括如下步骤：
 
@@ -199,7 +199,7 @@ private void rangeCheckForAdd(int index) {
 
 #### 元素迁移
 
-![image-20211020161643231](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/image-20211020161643231.png)
+![image-20211020161643231](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211020161643231.png)
 
 指定位置插入的核心步骤包括：
 1. 判断 size 是否可以插入：`rangeCheckForAdd(index);`；
@@ -240,7 +240,7 @@ public E remove(int index) {
 
 > 关于 Java GC 这里需要特别说明一下，**有了垃圾收集器并不意味着一定不会有内存泄漏**。对象能否被 GC 的依据是是否还有引用指向它，上面代码中如果不手动赋 `null` 值，除非对应的位置被其他元素覆盖，否则原来的对象就一直不会被回收。
 
-![image-20211020164233475](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/image-20211020164233475.png)
+![image-20211020164233475](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211020164233475.png)
 
 
 

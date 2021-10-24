@@ -10,11 +10,11 @@ const sidebar = {
     {
       text: 'Java 集合框架',
       children: [
-        '/java/collection/java-collection-overview/',
-        '/java/collection/java-collection-arraylist/',
-        '/java/collection/java-collection-linkedlist/',
-        '/java/collection/java-collection-stack&queue/',
-        '/java/collection/java-collection-set/',
+        '/java/container/collection/java-collection-overview/',
+        '/java/container/collection/java-collection-arraylist/',
+        '/java/container/collection/java-collection-linkedlist/',
+        '/java/container/collection/java-collection-stack&queue/',
+        '/java/container/collection/java-collection-set/',
       ]
     },
     {
@@ -118,7 +118,7 @@ module.exports = {
               },
               {
                 text: 'Java 集合框架',
-                link: '/java/collection/java-collection-overview/'
+                link: '/java/container/collection/java-collection-overview/'
               }
             ]
           },

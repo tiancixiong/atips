@@ -2,7 +2,7 @@
 
 程序开发中数据结构可以分为这八类：数组(Array)、链表(Linked)、栈(Stack)、队列(Queue)、散列表(Hash)、树(Tree)、堆(Heap)、图(Graph)。
 
-![image-20211021102338258](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/image-20211021102338258.png)
+![image-20211021102338258](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211021102338258.png)
 
 其中，数组、链表、散列表、树是程序开发直接或者间接用到的最多的。相关的对应实现类可以包括如下：
 
@@ -20,9 +20,9 @@
 `java.util` 库提供了一套相当完整的集合类（collection classes）来实现这些结构，其中基本的类
 型有 List 、Set 、Queue 和 Map。这些类型也被称作容器类（container classes）。
 
-![java_collections_overview](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/java_collections_overview.png)
+![java_collections_overview](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/java_collections_overview.png)
 
-![collection-classes](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/collection-classes.jpg)
+![collection-classes](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/collection-classes.jpg)
 
 容器主要包括 *Collection* 和 *Map* 两种，*Collection* 存储着对象的集合，而 *Map* 存储着键值对(两个对象)的映射表。
 
@@ -39,7 +39,7 @@
 
 ## Collection
 
-![java-collection-hierarchy](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/java-collection-hierarchy.jpeg)
+![java-collection-hierarchy](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/java-collection-hierarchy.jpeg)
 
 ### Set
 
@@ -89,7 +89,7 @@
 
 ## Map
 
-![map-class-hierarchy](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/collection/map-class-hierarchy.jpg)
+![map-class-hierarchy](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/map-class-hierarchy.jpg)
 
 ### TreeMap
 
