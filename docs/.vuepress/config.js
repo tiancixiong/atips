@@ -72,6 +72,12 @@ const sidebar = {
         '/software/postman/',
       ]
     },
+    {
+      text: '项目管理工具',
+      children: [
+        '/software/maven/',
+      ]
+    },
   ],
   about: [
     {
@@ -157,6 +163,10 @@ module.exports = {
               {
                 text: 'Postman',
                 link: '/software/postman/'
+              },
+              {
+                text: 'Maven',
+                link: '/software/maven/'
               },
             ]
           }
