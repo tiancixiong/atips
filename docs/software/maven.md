@@ -1,5 +1,166 @@
 # Maven
 
+## 基础概念
+
+**本地仓库、远程仓库关系**：
+
+![image-20211028143854066](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211028143854066.png)
+
+- **本地仓库**：
+- **私服**：私服中存储了公司的内部专用的jar！不仅如此，私服还充当了中央仓库的镜像，说白了就是一个代理
+- **[中央仓库](https://repo1.maven.org/maven2/)**：该仓库存储了互联网上的 jar，由 Maven 团队来维护
+
+
+
+### 坐标
+
+`groupId`，`artifactId`和`version`一起形成坐标的概念。坐标能够唯一确定 jar 或者 pom。
+
+查找坐标网址：[](https://search.maven.org/)、[](https://mvnrepository.com/)
+
+```xml
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.5.5</version>
+    <relativePath/> <!-- lookup parent from repository -->
+</parent>
+
+<groupId>com.example</groupId>
+<artifactId>test</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+<packaging>jar</packaging>
+
+<dependency>
+    <groupId></groupId>
+    <artifactId></artifactId>
+    <version></version>
+</dependency>
+```
+
+- `<groupId>`：组织名，一般是域名反写+实际项目名，如：org.springframework.boot
+- `<artifactId>`：项目名，如：spring-boot-starter
+- `<version>`：版本号
+- `<packaging>`：打包方式
+
+其他属性：
+
+```xml
+<dependency>
+    <groupId></groupId>
+    <artifactId></artifactId>
+    <version></version>
+    <scope></scope>
+    <exclusions></exclusions>
+</dependency>
+```
+
+- `<scope>`：依赖的范围。可以控制哪些依赖在哪些 `classpath` 中可用，哪些依赖包含在一个应用中
+  - compile(默认)：运行期有效，依赖在所有的 `classpath` 中可用，会被打入包中
+  - provided：编译期有效，运行期不需要提供，不会打入包中
+  - runtime：编译不需要，在运行期有效，需要导入包中（接口与实现分离）
+  - test：测试需要，不会打入包中。
+  - system：非本地仓库引入、存在系统的某个路径下的jar（一般不使用）
+
+
+
+### 生命周期
+
+| 生命周期阶段            | 描述                                                         |
+| ----------------------- | ------------------------------------------------------------ |
+| **validate**            | 验证项目是否正确，以及所有为了完整构建必要的信息是否可用     |
+| generate-sources        | 生成所有需要包含在编译过程中的源代码                         |
+| process-sources         | 处理源代码，比如过滤一些值                                   |
+| generate-resources      | 生成所有需要包含在打包中的资源文件                           |
+| process-resources       | 复制并处理资源文件至目标(target)目录，准备打包               |
+| **compile**             | 编译项目的源代码                                             |
+| process-classes         | 后处理编译生成的 class 文件，例如对Java类进行字节码增强      |
+| generate-test-sources   | 生成所有包含在测试编译过程中的测试源码                       |
+| process-test-sources    | 处理测试源码，比如过滤一些值                                 |
+| generate-test-resources | 生成测试需要的资源文件                                       |
+| process-test-resources  | 复制并处理测试资源文件至测试目标目录                         |
+| test-compile            | 编译测试源码至测试目标目录                                   |
+| **test**                | 使用合适的单元测试框架运行测试，这些测试不需要被打包或发布   |
+| prepare-package         | 在真正的打包之前，执行一些准备打包必要的操作                 |
+| **package**             | 将编译好的代码打包成可分发的格式，如 JAR，WAR                |
+| pre-integration-test    | 执行一些在集成测试运行之前需要的动作。如建立集成测试需要的环境 |
+| integration-test        | 如果有必要的话，处理包并发布至集成测试可以运行的环境         |
+| post-integration-test   | 执行一些在集成测试运行之后需要的动作。如清理集成测试环境。   |
+| **verify**              | 执行所有检查，验证包是有效的，符合质量规范                   |
+| **install**             | 安装包至本地仓库，以备本地的其它项目作为依赖使用             |
+| **deploy**              | 安装包至远程仓库(私服)，共享给其他开发人员和项目             |
+
+IDEA 中 Lifecycle ：
+
+- **clean**：有问题，多清理！
+- **package**：打成 Jar/War 包，会自动进行 clean+compile
+
+maven 常用构建命令：
+
+![image-20211028153649935](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211028153649935.png)
+
+
+
+### 约定目录结构
+
+Maven 提倡使用一个共同的标准目录结构，Maven 使用约定优于配置的原则，大家尽可能的遵守这样的目录结构。如下所示：
+
+- `${basedir}`：存放pom.xml和所有的子目录
+- `${basedir}/src/main/java`：项目的源代码
+- `${basedir}/src/main/resources`：项目的资源，比如说 property、yml 文件
+- `${basedir}/src/main/webapp/WEB-INF`：web应用文件目录，web项目的信息，比如存放web.xml、本地图片、jsp视图页面
+- `${basedir}/src/test/java`：项目的测试类，比如说 Junit 代码
+- `${basedir}/src/test/resources`：测试用的资源
+- `${basedir}/target`：打包输出目录
+- `${basedir}/target/classes`：编译输出目录
+- `${basedir}/target/test-classes`：测试编译输出目录
+- `~/.m2/repository`、`C:\Users\Administrator\.m2`：maven 默认的本地仓库目录位置
+
+![image-20211028150357970](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211028150357970.png)
+
+- `src/main`：这个目录中的内容最终会打包到 Jar/War 包中
+  - `src/main/resources`
+- `src/test`：测试内容，并不会打包进去
+
+
+
+## 配置文件
+
+在安装目录中找到配置文件：`conf/settings.xml`
+
+
+
+### 本地仓库
+
+配置**本地仓库**地址：
+
+```xml
+<localRepository>路径</localRepository>
+```
+
+
+
+### 设置镜像仓库
+
+设置镜像仓库，可以提高下载速度。在配置文件的 `<mirrors></mirrors>` 标签中添加 `<mirror/>` 子节点:
+
+- [阿里云公共仓库](https://developer.aliyun.com/mvn/guide)：
+
+  ```xml
+  <mirror>
+    <id>aliyunmaven</id>
+    <mirrorOf>*</mirrorOf>
+    <name>阿里云公共仓库</name>
+    <url>https://maven.aliyun.com/repository/public</url>
+  </mirror>
+  ```
+
+
+
+### 参考文献
+
+- [mavenGuide](http://www.kailing.pub/PdfReader/web/viewer.html?file=mavenGuide)
+
 
 
 ## Jar 包冲突
