@@ -19,6 +19,18 @@ const sidebar = {
       ]
     },
     {
+      text: 'Java 并发框架',
+      children: [
+        '/java/concurrent/java-concurrent-overview/',
+        '/java/concurrent/java-concurrent-keywords-synchronized/',
+        '/java/concurrent/java-concurrent-keywords-volatile/',
+        '/java/concurrent/java-concurrent-locks/',
+        '/java/concurrent/java-concurrent-locks-AQS/',
+        '/java/concurrent/java-concurrent-locks-ReentrantLock/',
+        '/java/concurrent/java-concurrent-ThreadLocal/',
+      ]
+    },
+    {
       text: 'JVM 相关',
       children: [
         '/java/jvm/java-jvm-agent-arthas/',
@@ -126,6 +138,15 @@ module.exports = {
               {
                 text: 'Java 集合框架',
                 link: '/java/container/collection/java-collection-overview/'
+              }
+            ]
+          },
+          {
+            text: 'Java进阶 - 并发框架',
+            children: [
+              {
+                text: 'Java 并发知识体系',
+                link: '/java/concurrent/java-concurrent-overview/'
               }
             ]
           },
