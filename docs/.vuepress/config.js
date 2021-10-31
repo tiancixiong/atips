@@ -37,6 +37,14 @@ const sidebar = {
       ]
     },
   ],
+  spring: [
+    {
+      text: 'spring 基础',
+      children: [
+        '/spring/spring-framework/',
+      ]
+    },
+  ],
   software_ide: [
     {
       text: 'IDEA',
@@ -161,6 +169,13 @@ module.exports = {
           },
         ]
       },
+      {
+        text: 'Spring', children: [
+          {
+            text: 'Spring 基础', link: '/spring/spring-framework/'
+          },
+        ]
+      },
       { text: 'Web', link: '/web/' },
       {
         text: '开发工具',
@@ -207,6 +222,7 @@ module.exports = {
           children: ['/web/'],
         },
       ],
+      '/spring/': sidebar.spring,
       '/software/ide/': sidebar.software_ide,
       '/software/': sidebar.software_other,
       '/about/': sidebar.about
