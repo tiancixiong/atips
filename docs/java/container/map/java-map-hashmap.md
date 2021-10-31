@@ -1,6 +1,6 @@
 # Map - HashMap
 
-*HashMap* 最早出现在 JDK 1.2中，底层基于散列算法实现，**以散列方式存储键值对**。HashMap 实现了 Map 接口，**允许 null 键和 null 值**，在计算哈键的哈希值时，null 键哈希值为 0。HashMap 是无序的，并不保证键值对的顺序，这意味着在进行某些操作后，键值对的顺序可能会发生变化。另外，需要注意的是，HashMap 是非线程安全类，在多线程环境下可能会存在问题。
+*HashMap* 最早出现在 *JDK 1.2* 中，底层基于散列算法实现，**以散列方式存储键值对**。HashMap 实现了 Map 接口，**允许 null 键和 null 值**，在计算哈键的哈希值时，*null* 键哈希值为 0。HashMap 是无序的，并不保证键值对的顺序，这意味着在进行某些操作后，键值对的顺序可能会发生变化。另外，需要注意的是，HashMap 是非线程安全类，在多线程环境下可能会存在问题。
 
 HashMap 有两个影响其性能的参数：初始容量和负载因子：
 
@@ -84,7 +84,7 @@ key值=plop Idx=5
 
 ### 扰动函数
 
-在 HashMap 存放元素时候有这样一段代码来处理哈希值，这是 `java 1.8` 的散列值扰动函数，用于优化散列效果：
+在 HashMap 存放元素时候有这样一段代码来处理哈希值，这是 *Java 1.8* 的散列值扰动函数，用于优化散列效果：
 
 ```java
 // java.util.HashMap
@@ -110,7 +110,7 @@ static final int DEFAULT_INITIAL_CAPACITY = 1 << 4;
 
 其实，HashMap 源码这里不只是直接获取哈希值，还进行了一次扰动计算，`(h = key.hashCode()) ^ (h >>> 16)`。把哈希值右移 16 位，也就正好是自己长度的一半，之后与原哈希值做异或运算，这样就混合了原哈希值中的高位和低位，增大了随机性。计算方式如下图：
 
-![image-20211024122233554](img/image-20211024122233554.png)
+![image-20211024122233554](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/map/image-20211024122233554.png)
 
 - 使用扰动函数就是为了增加随机性，让数据元素更加均衡的散列，减少碰撞。
 
@@ -165,7 +165,7 @@ static final int tableSizeFor(int cap) {
 
 那这里我们把 17 这样一个初始化计算阀值的过程，用图展示出来，方便理解：
 
-![image-20211024160058887](img/image-20211024160058887.png)
+![image-20211024160058887](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/map/image-20211024160058887.png)
 
 1. 二进制数有个规则，1、10、100、1000，...,1000...0，像这种高位为1，其他位全为 0 的二进制数，其十进制数都是 2 的幂；
 2. 先将入参的初始容量 17 减去1，得到 n=16，16 二进制为 `10000`；
@@ -261,7 +261,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
 
 HashMap 插入数据流程图：
 
-![image-20211024202419003](img/image-20211024202419003.png)
+![image-20211024202419003](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/map/image-20211024202419003.png)
 
 以上就是 HashMap 中一个数据插入的整体流程，包括了计算下标、何时扩容、何时链表转红黑树等，具体如下：
 
