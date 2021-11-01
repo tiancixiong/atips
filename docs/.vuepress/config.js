@@ -31,6 +31,13 @@ const sidebar = {
       ]
     },
     {
+      text: 'Java8 特性',
+      children: [
+        '/java/java1.8/java-8-features-overview/',
+        '/java/java1.8/java-8-stream/',
+      ]
+    },
+    {
       text: 'JVM 相关',
       children: [
         '/java/jvm/java-jvm-agent-arthas/',
@@ -155,6 +162,15 @@ module.exports = {
               {
                 text: 'Java 并发知识体系',
                 link: '/java/concurrent/java-concurrent-overview/'
+              }
+            ]
+          },
+          {
+            text: 'Java进阶 - 新版本特性',
+            children: [
+              {
+                text: 'Java 8 特性',
+                link: '/java/java1.8/java-8-features-overview/'
               }
             ]
           },
