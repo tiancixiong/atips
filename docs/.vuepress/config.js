@@ -105,6 +105,14 @@ const sidebar = {
         '/software/maven/',
       ]
     },
+    {
+      text: '容器化 - Docker',
+      children: [
+        '/devops/docker/docker-overview/',
+        '/devops/docker/docker-basic/',
+        '/devops/docker/docker-deploy-on-Linux/',
+      ]
+    },
   ],
   about: [
     {
@@ -220,6 +228,10 @@ module.exports = {
                 text: 'Maven',
                 link: '/software/maven/'
               },
+              {
+                text: 'Docker',
+                link: '/devops/docker/docker-basic/'
+              },
             ]
           }
         ]
@@ -241,6 +253,7 @@ module.exports = {
       '/spring/': sidebar.spring,
       '/software/ide/': sidebar.software_ide,
       '/software/': sidebar.software_other,
+      '/devops/': sidebar.software_other,
       '/about/': sidebar.about
     },
     // 编辑此页
