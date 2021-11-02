@@ -314,8 +314,8 @@ Arrays.asList("Java", "Scala", "C++", "Haskell", "Lisp").stream()
 
 常见例子：
 
-- 对一个交易列表按货币分组，获得该货币的所有交易额总和（返回一个Map<Currency，Integer>）
-- 将交易列表分成两组，贵的和不贵的（返回一个Map<Boolean，List<Transaction>>）
+- 对一个交易列表按货币分组，获得该货币的所有交易额总和（返回一个`Map<Currency，Integer>`）
+- 将交易列表分成两组，贵的和不贵的（返回一个`Map<Boolean，List<Transaction>>`）
 - 创建多级分组，比如按城市对交易分组，然后进一步按照贵的或不贵分组
 
 Collectors常见方法：
