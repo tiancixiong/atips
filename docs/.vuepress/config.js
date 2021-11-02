@@ -44,6 +44,14 @@ const sidebar = {
       ]
     },
   ],
+  database: [
+    {
+      text: 'SQL - MySQL',
+      children: [
+        '/database/mysql/mysql-master-slave/d',
+      ]
+    },
+  ],
   spring: [
     {
       text: 'spring 基础',
@@ -194,6 +202,19 @@ module.exports = {
         ]
       },
       {
+        text: '数据库', children: [
+          {
+            text: 'SQL 数据库',
+            children: [
+              {
+                text: 'MySQL 数据库',
+                link: '/database/mysql/mysql-master-slave/'
+              }
+            ]
+          },
+        ]
+      },
+      {
         text: 'Spring', children: [
           {
             text: 'Spring 基础', link: '/spring/spring-framework/'
@@ -250,6 +271,7 @@ module.exports = {
           children: ['/web/'],
         },
       ],
+      '/database/': sidebar.database,
       '/spring/': sidebar.spring,
       '/software/ide/': sidebar.software_ide,
       '/software/': sidebar.software_other,
