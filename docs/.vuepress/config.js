@@ -48,7 +48,8 @@ const sidebar = {
     {
       text: 'SQL - MySQL',
       children: [
-        '/database/mysql/mysql-master-slave/d',
+        '/database/mysql/mysql-commands/',
+        '/database/mysql/mysql-master-slave/',
       ]
     },
   ],
@@ -208,7 +209,7 @@ module.exports = {
             children: [
               {
                 text: 'MySQL 数据库',
-                link: '/database/mysql/mysql-master-slave/'
+                link: '/database/mysql/mysql-commands/'
               }
             ]
           },
