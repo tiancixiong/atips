@@ -89,6 +89,12 @@ const sidebar = {
   ],
   software_other: [
     {
+      text: 'Linux',
+      children: [
+        '/linux/linux-basic/',
+      ]
+    },
+    {
       text: '版本控制',
       children: [
         {
@@ -239,6 +245,10 @@ module.exports = {
             text: '其他',
             children: [
               {
+                text: 'Linux',
+                link: '/linux/linux-basic/'
+              },
+              {
                 text: 'Git',
                 link: '/software/vcs/git-commit/'
               },
@@ -275,6 +285,7 @@ module.exports = {
       '/database/': sidebar.database,
       '/spring/': sidebar.spring,
       '/software/ide/': sidebar.software_ide,
+      '/linux/': sidebar.software_other,
       '/software/': sidebar.software_other,
       '/devops/': sidebar.software_other,
       '/about/': sidebar.about
