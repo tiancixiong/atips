@@ -52,6 +52,15 @@ const sidebar = {
         '/database/mysql/mysql-master-slave/',
       ]
     },
+    {
+      text: 'NoSQL - Redis',
+      children: [
+        '/database/nosql-redis/redis-overview/',
+        '/database/nosql-redis/redis-introduce/',
+        '/database/nosql-redis/redis-data-types/',
+        '/database/nosql-redis/redis-data-types-special/',
+      ]
+    },
   ],
   spring: [
     {
@@ -216,6 +225,15 @@ module.exports = {
               {
                 text: 'MySQL 数据库',
                 link: '/database/mysql/mysql-commands/'
+              }
+            ]
+          },
+          {
+            text: 'NoSQL 数据库',
+            children: [
+              {
+                text: 'Redis 数据库',
+                link: '/database/nosql-redis/redis-overview/'
               }
             ]
           },
