@@ -241,7 +241,11 @@ module.exports = {
               {
                 text: 'Redis 数据库',
                 link: '/database/nosql-redis/redis-overview/'
-              }
+              },
+              {
+                text: 'MongoDB 数据库',
+                link: '/database/nosql-mongodb/mongodb-overview/'
+              },
             ]
           },
         ]
