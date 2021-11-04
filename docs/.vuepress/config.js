@@ -61,6 +61,13 @@ const sidebar = {
         '/database/nosql-redis/redis-data-types-special/',
       ]
     },
+    {
+      text: 'NoSQL - MongoDB',
+      children: [
+        '/database/nosql-mongodb/mongodb-overview/',
+        '/database/nosql-mongodb/mongodb-basic/',
+      ]
+    },
   ],
   spring: [
     {
