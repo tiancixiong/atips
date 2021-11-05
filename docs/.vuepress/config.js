@@ -68,6 +68,13 @@ const sidebar = {
         '/database/nosql-mongodb/mongodb-basic/',
       ]
     },
+    {
+      text: 'NoSQL - Elasticsearch',
+      children: [
+        '/database/nosql-elasticsearch/elasticsearch-overview/',
+        '/database/nosql-elasticsearch/elasticsearch-introduce/',
+      ]
+    },
   ],
   spring: [
     {
@@ -245,6 +252,10 @@ module.exports = {
               {
                 text: 'MongoDB 数据库',
                 link: '/database/nosql-mongodb/mongodb-overview/'
+              },
+              {
+                text: 'Elasticsearch',
+                link: '/database/nosql-elasticsearch/elasticsearch-overview/'
               },
             ]
           },
