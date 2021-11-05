@@ -73,6 +73,7 @@ const sidebar = {
       children: [
         '/database/nosql-elasticsearch/elasticsearch-overview/',
         '/database/nosql-elasticsearch/elasticsearch-introduce/',
+        '/database/nosql-elasticsearch/elasticsearch-install/',
       ]
     },
   ],

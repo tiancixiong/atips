@@ -2,6 +2,18 @@
 
 ## 什么是ElasticSearch
 
+### Elastic
+
+> Elastic官网：[https://www.elastic.co/cn/](https://www.elastic.co/cn/)
+
+Elastic 有一条完整的产品线及解决方案：Elasticsearch、Kibana、Logstash等，前面说的三个就是大家常说的 ELK 技术栈。
+
+
+
+### ElasticSearch
+
+> Elasticsearch官网：[https://www.elastic.co/cn/products/elasticsearch](https://www.elastic.co/cn/products/elasticsearch)
+
 **[Elasticsearch](https://github.com/elastic/elasticsearch) 是一个分布式、RESTful 风格的搜索和数据分析引擎**，能够解决不断涌现出的各种用例。 作为 Elastic Stack 的核心，它集中存储您的数据，帮助您发现意料之中以及意料之外的情况。Elasticsearch 基于搜索库 [Lucene](https://github.com/apache/lucene-solr) 开发。ElasticSearch 隐藏了 Lucene 的复杂性，提供了简单易用的 REST API / Java API 接口（另外还有其他语言的 API 接口）。
 
 ElasticSearch 可以视为一个文档存储，它**将复杂数据结构序列化为 JSON 存储**。**ElasticSearch 是近乎于实时的全文搜素**，这是指：
