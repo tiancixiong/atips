@@ -164,6 +164,43 @@ Document 使用 JSON 格式表示，下面是一个例子：
 
 
 
+### 核心数据类型
+
+Elasticsearch中支持的数据类型非常丰富：
+
+![Field datatypes](img/1531712631982.png)
+
+我们说几个关键的：
+
+- String 类型，又分两种：
+
+  - `text`：可分词，不可参与聚合
+  - `keyword`：不可分词，数据会作为完整字段进行匹配，可以参与聚合
+
+- Numerical：数值类型，分两类
+
+  - 基本数据类型：`long`、`interger`、`short`、`byte`、`double`、`float`、`half_float`
+  - 浮点数的高精度类型：`scaled_float`
+    - 需要指定一个精度因子，比如 10 或 100。elasticsearch 会把真实值乘以这个因子后存储，取出时再还原。
+
+- boolean 数值型
+
+- date：日期类型
+
+  elasticsearch 可以对日期格式化为字符串存储，但是建议我们存储为毫秒值，存储为 *long*，节省空间。
+
+  由于 Json 没有 date 类型，所以 es 通过识别字符串是否符合 format 定义的格式来判断是否为 date 类型。format 默认为：`strict_date_optional_time`、`epoch_millis`
+
+- binary：二进制，该类型的字段把值当做经过 base64 编码的字符串，默认不存储，且不可搜索
+
+- Range datatypes，范围类型。范围类型表示值是一个范围，而不是⼀个具体的值。分为：integer_range, float_range, long_range, double_range, date_range。
+
+  譬如 age 的类型是 integer_range，那么值可以是 `{"gte" : 20, "lte" : 40}`；搜索 `"term" : {"age": 21}` 可以搜索该值。
+
+> 更多详情：[Field datatypes](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/mapping-types.html#_core_datatypes)
+
+
+
 ### ES 核心概念 vs. DB 核心概念
 
 
