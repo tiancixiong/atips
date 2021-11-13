@@ -85,6 +85,15 @@ const sidebar = {
       ]
     },
   ],
+  mq: [
+    {
+      text: '消息中间件',
+      children: [
+        '/mq/mq-overview/',
+        '/mq/mq-RabbitMQ/',
+      ]
+    },
+  ],
   software_ide: [
     {
       text: 'IDEA',
@@ -329,6 +338,7 @@ module.exports = {
       '/linux/': sidebar.software_other,
       '/software/': sidebar.software_other,
       '/devops/': sidebar.software_other,
+      '/mq/': sidebar.mq,
       '/about/': sidebar.about
     },
     // 编辑此页
