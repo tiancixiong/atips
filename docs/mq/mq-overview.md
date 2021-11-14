@@ -10,7 +10,7 @@
 
 消息队列（Message Queue）是一种应用间的通信方式。消息队列是典型的 *生产者-消费者* 模型。生产者不断向消息队列中生产消息，消费者不断的从队列中获取消息。因为消息的生产和消费都是异步的，而且只关心消息的发送和接收，没有业务逻辑的侵入，这样就实现了生产者和消费者的解耦。
 
-![image-20211112161717225](img/image-20211112161717225.png)
+ ![image-20211112161717225](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112161717225.png)
 
 
 
@@ -20,7 +20,7 @@
 
    如图所示，假设有系统B、C、D都需要系统A的数据，于是系统A调用三个方法发送数据到B、C、D。这时，系统D不需要了，那就需要在系统A把相关的代码删掉。假设这时有个新的系统E需要数据，这时系统A又要增加调用系统E的代码。为了降低这种强耦合，就可以使用MQ，系统A只需要把数据发送到MQ，其他系统如果需要数据，则从MQ中获取即可。通过一个 MQ，Pub/Sub 发布订阅消息这么一个模型，A 系统就跟其它系统彻底解耦了。
 
-   ![img](img/image-20211112161554428.png)
+   ![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112161554428.png)
 
 2. **异步**
 
@@ -28,7 +28,7 @@
 
    只有在业务流程允许异步处理的情况下才能这么做。比如在注册流程中，如果要求用户对验证邮件进行点击之后才能完成注册的话，就不能再使用消息队列。
 
-   ![image-20211112161832548](img/image-20211112161832548.png)
+   ![image-20211112161832548](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112161832548.png)
 
 3. **削峰**，通过异步处理，将短时间高并发产生的事务消息存储在消息队列中，从而削平高峰期的并发事务。
 
@@ -36,7 +36,7 @@
 
    如果使用MQ，系统A不再是直接发送SQL到数据库，而是把数据发送到MQ，MQ短时间积压数据是可以接受的，然后由消费者每次拉取2000条进行处理，防止在请求峰值时期大量的请求直接发送到MySQL导致系统崩溃。
 
-   ![image-20211112162014339](img/image-20211112162014339.png)
+   ![image-20211112162014339](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112162014339.png)
 
 > 💡 `发布-订阅模式`是 **JMS 规范** 两种消息模型中的一种，另外 **AMQP 协议** 还提出了五种消息模型，见下文。
 
@@ -72,7 +72,7 @@ JMS（JAVA Message Service, java消息服务）是 java 的消息服务，JMS �
 
 生产者不需要在接收者消费该消息期间处于运行状态，接收者也同样不需要在消息发送时处于运行状态；每一个成功处理的消息都由接收者签收；多个消费者对于队列内的消息是竞争消费关系，每个消费者只能收到队列中的一部分消息。
 
-![](img/20201124141849.png)
+![](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/20201124141849.png)
 
 
 
@@ -82,7 +82,7 @@ JMS（JAVA Message Service, java消息服务）是 java 的消息服务，JMS �
 
 发布者需要创建一个 `订阅主题（Topic）` 以便客户能够购订阅并保持持续的活动以接受消息，**一个订阅主题是由至少一个队列（Queue）组成的，除非订阅者创建了持久的订阅，在订阅者未连接时发布的消息将在订阅者重新连接时重新发布**，每个消费者都能收到全量的消息。
 
-![](img/20201124141856.png)
+![](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/20201124141856.png)
 
 
 

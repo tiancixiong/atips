@@ -1272,23 +1272,127 @@ Exchange.DeclareOk exchangeDeclare(String exchange, String type, boolean durable
 
 
 
+## Spring AMQP
+
+Spring AMQP的页面：https://spring.io/projects/spring-amqp
+
+spring-amqp 是对 AMQP 协议的抽象实现，而 spring-rabbit 是对协议的具体实现，也是目前的唯一实现。底层使用的就是 RabbitMQ。
 
 
 
+### 依赖和配置
+
+添加 AMQP 的启动器：
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-amqp</artifactId>
+</dependency>
+```
+
+在 `application.yml` 中添加 RabbitMQ 地址：
+
+```yaml
+spring:
+  rabbitmq:
+    host: 127.0.0.1 #rabbitmq主机地址
+    username: yolo #用户名
+    password: 123456 #密码
+    virtual-host: /yolo #虚拟机名
+```
 
 
 
+### 监听者
+
+在 SpringAMQP 中，对消息的消费者进行了封装和抽象，一个普通的 JavaBean 中的普通方法，只要通过简单的注解，就可以成为一个消费者。
+
+```java
+import org.springframework.amqp.core.ExchangeTypes;
+import org.springframework.amqp.rabbit.annotation.Exchange;
+import org.springframework.amqp.rabbit.annotation.Queue;
+import org.springframework.amqp.rabbit.annotation.QueueBinding;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Listener {
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(value = "spring.test.queue", durable = "true"),
+            exchange = @Exchange(
+                    value = "spring.test.exchange",
+                    ignoreDeclarationExceptions = "true",
+                    type = ExchangeTypes.TOPIC),
+            key = {"#.#"})
+    )
+    public void listen(String msg) {
+        System.out.println("收到消息：" + msg);
+    }
+}
+```
+
+- `@Componet`：类上的注解，注册到Spring容器；
+
+- `@RabbitListener`：方法上的注解，声明这个方法是一个消费者方法，需要指定下面的属性：
+
+  - `bindings`：指定绑定关系，可以有多个。值是 `@QueueBinding` 的数组。
+
+    `@QueueBinding` 包含下面属性：
+
+    - `value`：这个消费者关联的队列。值是 `@Queue`，代表一个队列；
+    - `exchange`：队列所绑定的交换机，值是 `@Exchange` 类型；
+    - `key`：队列和交换机绑定的 `RoutingKey；`
+
+类似 listen 这样的方法在一个类中可以写多个，就代表多个消费者。
 
 
 
+### AmqpTemplate
+
+Spring 为 AMQP 提供了统一的消息处理模板：***AmqpTemplate***，非常方便的发送消息，其发送方法：
+
+ ![1527090258083](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1527090258083.png)
+
+红框圈起来的是比较常用的3个方法，分别是：
+
+- 指定交换机、RoutingKey和消息体
+- 指定消息
+- 指定RoutingKey和消息，会向默认的交换机发送消息
 
 
 
+### 测试代码
 
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = Application.class)
+public class MqDemo {
 
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
+    @Test
+    public void testSend() throws InterruptedException {
+        String msg = "hello, Spring boot amqp";
+        this.amqpTemplate.convertAndSend("spring.test.exchange","a.b", msg);
+        // 等待10秒后再结束
+        Thread.sleep(10000);
+    }
+}
+```
 
+---
 
+创建交换机和队列，：
+
+ ![image-20211114135903787](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211114135903787.png)
+
+ ![image-20211114135920910](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211114135920910.png)
+
+运行代码，查看日志：
+
+ ![image-20211114140005780](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211114140005780.png)
 
 
 
