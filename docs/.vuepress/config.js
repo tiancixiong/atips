@@ -272,7 +272,69 @@ module.exports = {
         ]
       },
       {
-        text: 'Spring', children: [
+        text: '开发',
+        children: [
+          {
+            text: '高并发架构',
+            children: [
+              {
+                text: '消息队列',
+                link: '/mq/mq-overview/'
+              },
+              {
+                text: '搜索引擎',
+                link: '/database/nosql-elasticsearch/elasticsearch-overview/'
+              },
+              {
+                text: '缓存',
+                link: '/database/nosql-redis/redis-overview/'
+              },
+              {
+                text: '分库分表',
+                link: ''
+              },
+              {
+                text: '读写分离',
+                link: ''
+              },
+            ]
+          },
+          {
+            text: '高可用架构',
+            children: [
+              {
+                text: '基于Hystrix',
+                link: ''
+              },
+            ]
+          },
+          {
+            text: '分布式系统',
+            children: [
+              {
+                text: '分布式锁',
+                link: ''
+              },
+              {
+                text: '分布式事务',
+                link: ''
+              },
+            ]
+          },
+          {
+            text: '微服务架构',
+            children: [
+              {
+                text: '基于Hystrix',
+                link: ''
+              },
+            ]
+          },
+        ]
+      },
+      {
+        text: 'Spring',
+        children: [
           {
             text: 'Spring 基础', link: '/spring/spring-framework/'
           },
