@@ -2,11 +2,7 @@
 
 ## 概述
 
-*LinkedList* 同时实现了 *List* 接口和 *Deque* 接口，也就是说它既可以看作一个顺序容器，又可以看作一个队列(*Queue*)，同时又可以看作一个栈(*Stack*)。这样看来，*LinkedList* 简直就是个全能冠军。当你需要使用栈或者队列时，可以考虑使用 *LinkedList*，一方面是因为 Java 官方已经声明不建议使用 *Stack* 类，更遗憾的是，Java 里根本没有一个叫做 *Queue* 的类(它是个接口名字)。关于栈或队列，现在的首选是 *ArrayDeque*，它有着比 *LinkedList* (当作栈或队列使用时)有着更好的性能。
-
-![image-20211020193139419](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/linkedlist-base.png)
-
-
+*LinkedList* 同时实现了 *List* 接口和 *Deque* 接口，也就是说它既可以看作一个顺序容器，又可以看作一个队列(*Queue*)，同时又可以看作一个栈(*Stack*)。这样看来，*LinkedList* 简直就是个全能冠军。当你需要使用栈或者队列时，可以考虑使用 *LinkedList*，一方面是因为 Java 官方已经声明不建议使用 *Stack* 类，更遗憾的是，Java 里根本没有一个叫做 *Queue* 的类（它是个接口名字）。关于栈或队列，现在的首选是 *ArrayDeque*，它有着比 *LinkedList* （当作栈或队列使用时）有着更好的性能。
 
 
 
@@ -16,35 +12,41 @@
 
 *LinkedList* 底层**通过双向链表实现**。由双向链条 **next**、**prev**，把数据节点穿插起来。所以，在插入数据时，是不需要像我们上一章节介绍的 *ArrayList* 那样，扩容数组。
 
-双向链表的每个节点用内部类 *Node* 表示。*LinkedList* 通过 `first` 和 `last` 引用分别指向链表的第一个和最后一个元素。注意这里没有所谓的哑元，当链表为空的时候 `first` 和 `last` 都指向 `null`。
+双向链表的每个节点用内部类 ***Node*** 表示。*LinkedList* 通过 `first` 和 `last` 引用分别指向链表的第一个和最后一个元素。注意这里没有所谓的哑元，当链表为空的时候 `first` 和 `last` 都指向 `null`。
 
 
 ```java
-// java.util.LinkedList
+package java.util;
+public class LinkedList<E>
+    extends AbstractSequentialList<E>
+    implements List<E>, Deque<E>, Cloneable, java.io.Serializable
+{
+    //... 
+    transient Node<E> first;
+    transient Node<E> last;
 
-transient Node<E> first;
+    // Node 是私有的内部类
+    private static class Node<E> {
+        E item;
+        Node<E> next;
+        Node<E> prev;
 
-transient Node<E> last;
-
-// Node 是私有的内部类
-private static class Node<E> {
-    E item;
-    Node<E> next;
-    Node<E> prev;
-
-    Node(Node<E> prev, E element, Node<E> next) {
-        this.item = element;
-        this.next = next;
-        this.prev = prev;
+        Node(Node<E> prev, E element, Node<E> next) {
+            this.item = element;
+            this.next = next;
+            this.prev = prev;
+        }
     }
+    // ...
 }
 ```
+ ![image-20211020193139419](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/linkedlist-base.png)
 
 
 
 ## 构造函数
 
-与 ArrayList 不同，*LinkedList* 初始化不需要创建数组，因为它是一个链表结构。而且也没有提供设置初始长度的构造器。*LinkedList* 只提供了2种构造函数：
+与 ArrayList 不同，*LinkedList* 初始化不需要创建数组，因为它是一个链表结构。而且也没有提供设置初始长度的构造器。*LinkedList* 只提供了 2 种构造函数：
 
 - `LinkedList()`
 - `LinkedList(Collection<? extends E> c)`
@@ -53,7 +55,9 @@ private static class Node<E> {
 
 ## 插入
 
-*LinkedList* 的插入方法比较多，List 中接口中默认提供的是 `add`，也可以指定位置插入。但在 *LinkedList* 中还提供了头插 `addFirst()` 和尾插 `addLast()`（`add()` 和 `addLast()` 作用相同） 。
+*LinkedList* 的插入方法比较多，List 中接口中默认提供的是 `add()`，也可以指定位置插入。但在 *LinkedList* 中还提供了头插 `addFirst()` 和尾插 `addLast()`（`add()` 和 `addLast()` 作用相同） 。
+
+
 
 ### 头插
 
@@ -61,13 +65,16 @@ private static class Node<E> {
 
 ![image-20211020200627443](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211020200627443.png)
 
-- *ArrayList* 头插时，需要把数组元素通过 `Arrays.copyOf` 的方式把数组元素移位，如果容量不足还需要扩容；
-- *LinkedList* 头插时，则不需要考虑扩容以及移位问题，直接把元素定位到首位，接点链条链接上即可。
+- ***ArrayList*** 头插时，需要把数组元素通过 `Arrays.copyOf` 的方式把数组元素移位，如果容量不足还需要扩容；
+- ***LinkedList*** 头插时，则不需要考虑扩容以及移位问题，直接把元素定位到首位，接点链条链接上即可。
 
 *LinkedList* 中 `addFirst()` 方法调用了 `linkFirst()` 方法实现头插，源码：
 
 ```java
 // java.util.LinkedList
+transient Node<E> first;
+transient Node<E> last;
+
 public void addFirst(E e) {
     linkFirst(e);
 }
@@ -77,7 +84,7 @@ private void linkFirst(E e) {
     final Node<E> newNode = new Node<>(null, e, f);
     first = newNode;
     if (f == null)
-        last = newNode;
+        last = newNode; //first == last == null
     else
         f.prev = newNode;
     size++;
@@ -87,7 +94,9 @@ private void linkFirst(E e) {
 
 - `first`  首节点会一直被记录，这样就非常方便头插；
 - 插入时候会创建新的节点元素 `new Node<>(null, e, f)`，紧接着把新的头元素赋值给 `first`；
-- 之后判断 `f` 节点(标记的 old first 节点)是否存在，不存在则把头插节点 newNode 即作为第一个节点又作为最后一个节点；存在则用 `f` 节点的上一个链条 `prev` 链接；
+- 之后判断 `f` 节点（标记的 old first 节点）是否存在：
+  - 不存在（`f == null`）则把头插节点 newNode 即作为第一个节点又作为最后一个节点；这种情况就是插入第一个元素时 first 和 last 都指向这个元素；
+  - 存在则用 `f` 节点的上一个链条 `f.prev` 链接 newNode；
 - 最后记录 `size` 大小，和元素数量 `modCount` 。 `modCount` 用在遍历时做校验 `modCount != expectedModCount`。
 
 
@@ -229,7 +238,7 @@ void linkBefore(E e, Node<E> succ) {
 | `boolean removeFirstOccurrence(Object o)` | 删除第一个匹配上的元素（从头到尾遍历列表）   |
 | `boolean removeLastOccurrence(Object o)`  | 删除最后一个匹配上的元素（从头到尾遍历列表） |
 
-还要继承自父类(AbstractCollection)的方法：`boolean removeAll(Collection<?> c)`，按照集合批量删除，底层是 Iterator 删除。
+还有继承自父类（*AbstractCollection*）的方法：`boolean removeAll(Collection<?> c)`，按照集合批量删除，底层是 *Iterator* 删除。
 
 
 
@@ -293,10 +302,45 @@ E unlink(Node<E> x) {
 ```
 
 1. 获取待删除元素节点 `item` 的信息；元素下一个节点 `next` 、元素上一个节点 `prev`；
-2. 如果 `prev` 节点为空则把待删除元素 `x` 的下一个节点 `next` 赋值给首节点 `first`；否则把待删除节点的下一个节点 `next`，赋值给待删除节点的上一个节点的子节点 `prev.next`。并将 `x` 节点的向前指向置为空：`x.prev = null`；
-3. 如果 `next` 节点为空则把把待删除元素 `x` 的上一个节点 `prev` 赋值给尾节点 `last`；否则把待删除节点的上一个节点 `prev`，赋值给待删除节点的下一个节点的子节点 `next.prev`。并将 `x` 节点的向后指向置为空：`x.next = null`；
+2. 如果 `prev` 节点为空（说明待删除元素为头元素）则把待删除元素 `x` 的下一个节点 `next` 赋值给首节点 `first`；否则把待删除节点的下一个节点 `next`，赋值给待删除节点的上一个节点的子节点 `prev.next`。并将 `x` 节点的向前指向置为空：`x.prev = null`；
+3. 如果 `next` 节点为空（说明但删除元素为尾元素）则把把待删除元素 `x` 的上一个节点 `prev` 赋值给尾节点 `last`；否则把待删除节点的上一个节点 `prev`，赋值给待删除节点的下一个节点的子节点 `next.prev`。并将 `x` 节点的向后指向置为空：`x.next = null`；
 4. 通过步骤2和步骤3后，就将待删除节点 `x` 从链表中分离出来了，`x` 节点和链表上的其他节点已经没有了关联关系；
-5. 最后就是把删除节点 `x` 设置为 `null` ，并扣减 `size` 和 `modeCount` 数量。
+5. 最后就是把删除节点 `x` 置空：`x.item = null;` ，并扣减 `size` 和增加 `modeCount` 数量。
+
+
+
+## 查询
+
+```java
+// java.util.LinkedList
+public E get(int index) {
+    checkElementIndex(index);
+    return node(index).item;
+}
+
+Node<E> node(int index) {
+    // assert isElementIndex(index);
+
+    if (index < (size >> 1)) {
+        Node<E> x = first;
+        for (int i = 0; i < index; i++)
+            x = x.next;
+        return x;
+    } else {
+        Node<E> x = last;
+        for (int i = size - 1; i > index; i--)
+            x = x.prev;
+        return x;
+    }
+}
+```
+
+上述代码，利用了双向链表的特性，如果 `index` 离链表头比较近，就从节点头部遍历。否则就从节点尾部开始遍历。使用空间（双向链表）来换取时间。
+
+- `node()` 会以 O(n/2) 的性能去获取一个结点
+- 如果索引值大于链表大小的一半，那么将从尾结点开始遍历
+
+这样的效率是非常低的，特别是当 index 越接近 size 的中间值时。
 
 
 
