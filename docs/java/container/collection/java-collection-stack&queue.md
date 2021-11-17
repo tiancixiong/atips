@@ -4,13 +4,15 @@
 
 ### 栈
 
-栈（stack）是限制插入和删除只能在一个位置上进行的表，该位置是表的末端，叫做栈顶（top）。它是**后进先出**（LIFO）的。对栈的基本操作只有 push（进栈）和 pop（出栈）两种，前者相当于插入，后者相当于删除最后的元素。
+栈（Stack）是限制插入和删除只能在一个位置上进行的表，该位置是表的末端，叫做栈顶（top）。它是**后进先出**（**LIFO**）的。对栈的基本操作只有 push（进栈）和 pop（出栈）两种，前者相当于插入，后者相当于删除最后的元素。
+
+> LIFO： last-in-first-out，即后进先出。
 
 ![image-20211021114046977](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211021114046977.png)
 
 ### 队列
 
-队列（Queue）是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。它是**先进先出**（FIFO）集合。进行插入操作的端称为队尾，进行删除操作的端称为队头。
+队列（***Queue***）是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。它是**先进先出**（**FIFO**）集合。进行插入操作的端称为队尾，进行删除操作的端称为队头。
 
 ![image-20211021114214138](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211021114214138.png)
 
@@ -18,7 +20,7 @@
 
 ---
 
-Java 里有一个叫做 *Stack* 的类，却没有叫做 *Queue* 的类（它是个接口名字）。当需要使用栈时，Java 已不推荐使用 *Stack*，而是推荐使用 Java 1.6 提供的更高效的 *ArrayDeque*；既然 *Queue* 只是一个接口，当需要使用队列时也就首选*ArrayDeque* 了（次选是 *LinkedList* ）。
+Java 里有一个叫做 *Stack* 的类，却没有叫做 *Queue* 的类（它是个接口名字）。当需要使用栈时，Java 已不推荐使用 *Stack*，而是推荐使用 Java 1.6 提供的更高效的 *ArrayDeque*；既然 *Queue* 只是一个接口，当需要使用队列时也就首选 *ArrayDeque* 了（次选是 *LinkedList* ）。
 
 
 
@@ -80,12 +82,12 @@ public E push(E item) {
 public synchronized void addElement(E obj) {
     modCount++;
     ensureCapacityHelper(elementCount + 1);
-    elementData[elementCount++] = obj;
+    elementData[elementCount++] = obj; //这里的elementData继承自java.util.Vector
 }
 ```
 
 1. *Stack* 栈是在 **JDK1.0** 时代时，基于继承 *Vector* 实现的。本身 *Vector* 就是一个不推荐使用的类，主要在于它的一些操作方法锁 `synchronized` 的力度太粗，都是放到方法上；
-2. *Stack* 栈底层是使用 *Vector* 数组实现，在学习 *ArrayList* 时候我们知道，数组结构在元素添加和擅长需要通过 `System.arraycopy`，进行扩容操作。而本身栈的特点是首尾元素的操作，也不需要遍历，使用数组结构其实并不太理想；
+2. *Stack* 栈底层是使用 *Vector* 内的 `protected Object[] elementData;` 数组实现，在学习 *ArrayList* 时候我们知道，数组结构在元素添加和删除操作时需要通过 `System.arraycopy` 进行扩容操作。而本身栈的特点是首尾元素的操作，也不需要遍历，使用数组结构其实并不太理想；
 3. 同时在这个方法的注释上也明确标出来，推荐使用 `Deque<Integer> stack = new ArrayDeque<Integer>();`，虽然这也是数组结构，但是它没有粗粒度的锁，同时可以申请指定空间并且在扩容时操作时也要优于 *Stack* ；并且它还是一个双端队列，使用起来更灵活。
 
 
@@ -93,11 +95,11 @@ public synchronized void addElement(E obj) {
 ## 双端队列 ArrayDeque
 
 *ArrayDeque* 是基于数组实现的可动态扩容的双端队列，也就是说你可以在队列的头和尾同时插入和弹出元素。当元素数量超过数组初始化长度时，则需要扩容和迁移数据。
-数据结构和操作，如下（TODO：图片有误，后面需修正）：
+数据结构和操作，如下（TODO：图片有误，图中`push()`应是头插，`offerLast()`应是尾插，后面需修正）：
 
 ![image-20211021160523199](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211021160523199.png)
 
-1. 双端队列是基于数组实现，所以扩容迁移数据操作；
+1. 双端队列是基于数组实现，所以扩容就是通过 `System.arraycopy` 进行迁移数据操作；
 2. `push()` 向头部插入、`add()` 向结尾插入；这样两端都满足后进先出；
 3. 整体来看，双端队列，就是一个环形。所以扩容后继续插入元素也满足后进先出。
 
@@ -133,11 +135,9 @@ public void test_ArrayDeque() {
 
 #### 初始化
 
-- `ArrayDeque()` - 
-- `ArrayDeque(int numElements)` - 
-- `ArrayDeque(Collection<? extends E> c) ` - 
-
-
+- `ArrayDeque()`
+- `ArrayDeque(int numElements)`
+- `ArrayDeque(Collection<? extends E> c) `
 
 ```java
 // java.util.ArrayDeque
@@ -170,7 +170,7 @@ private static int calculateSize(int numElements) {
 }
 ```
 
-- 在初始化的过程中，它通过 `calculateSize()` 找到当前传输值 `numElements` 最小的 2的幂，作为扩容后的容量。这与 *HashMap* 的初始化过程相似。
+- 在初始化的过程中，它通过 `calculateSize()` 找到当前传输值 `numElements` 最小的 2 的幂，作为扩容后的容量。这与 *HashMap* 的初始化过程相似。
 
 
 
@@ -198,7 +198,7 @@ public void addFirst(E e) {
 }
 ```
 
-
+---
 
 **尾插**：*ArrayDeque* 提供的尾插方法是 `add()` 与 `offerLast()` ，都是在尾部插入元素。它们的底层源码是一样的，都是使用 `addLast()` 方法进行操作。如下：
 
@@ -223,17 +223,19 @@ public void addLast(E e) {
 }
 ```
 
+---
+
 这部分入栈元素，其实就是给数组赋值，知识点如下：
 
-1. 在 `addFirst()` 中，定位下标， `head = (head - 1) & (elements.length - 1)`，因为我们的数组长度是 `2^n` 的倍数，所以 `2^n-1` 就是一个全是 1 的二进制数，可以用于与运算得出数组下标；
+1. 在 `addFirst()` 中，定位下标， `head = (head - 1) & (elements.length - 1)`，因为我们的数组长度是 `2^n` 的倍数，所以 `2^n-1` 就是一个全是 1 的二进制数，可以用*与运算*得出数组下标；
 2. 同样 `addLast()` 中，也使用了相同的方式定位下标，只不过它是从 0 开始，往上增加；
-3. 最后，当 头(head) 与 尾(tail) 相等，数组则需要扩大一倍的容量 `doubleCapacity` 。
+3. 最后，当 头(head) 与 尾(tail) 相等，数组则需要扩大一倍的容量 `doubleCapacity()` 。
 
-头插中计算下标 `head = (head - 1) & (elements.length - 1)`：
+使用 `addFirst()` 头插插入第一个元素时计算下标 `head = (head - 1) & (elements.length - 1)` 的过程：
 
-- (0-1) & (8-1) = 7
-- (7-1) & (8-1) = 6
-- (6-1) & (8-1) = 5
+- `(0-1) & (8-1)` = 7	//head=0，elements.length=8
+- `(7-1) & (8-1)` = 6
+- `(6-1) & (8-1)` = 5
 - ...
 
 
@@ -258,8 +260,6 @@ private void doubleCapacity() {
     tail = n;
 }
 ```
-
-
 
 上面就是进行两倍扩容 `n << 1`，同时把两端数据迁移进新的数组的部分。下面通过一个例子来模拟一下这个过程。
 
@@ -375,7 +375,7 @@ void linkLast(E e) {
 
 ## 延时队列 DelayQueue
 
-有个场景，是需要把一些数据存起来，*倒计时*到某个时刻在使用。在 Java 的队列数据结构中，还有一种队列是**延时队列**，可以通过设定存放时间，依次轮训获取。 
+有个场景，是需要把一些数据存起来，***倒计时*** 到某个时刻在使用。在 Java 的队列数据结构中，还有一种队列是**延时队列**，可以通过设定存放时间，依次轮询获取。 
 
 *DelayQueue* 是一个支持延时获取元素的无界阻塞队列。队列使用 *PriorityQueue* 来实现。队列中的元素必须实现 *Delayed* 接口，在创建元素时可以指定多久才能从队列中获取当前元素。只有在延迟期满时才能从队列中提取元素。我们可以将 *DelayQueue* 运用在以下应用场景：
 
@@ -577,8 +577,6 @@ public E take() throws InterruptedException {
 
 
 
-
-
 ---
 
 参考：[从DelayQueue到 Leader-follower线程模型](https://crrrrrw.github.io/java-concurrency/delayqueue-leaderfollower/)、[Java同步数据结构之DelayQueue/DelayedWorkQueue](https://www.cnblogs.com/txmfz/p/10338334.html)
@@ -606,6 +604,78 @@ public E take() throws InterruptedException {
 ### 基本使用
 
 
+
+```java
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
+
+public class DataQueueStack<T> {
+    private BlockingQueue<T> dataQueue = null;
+
+    public DataQueueStack() {
+        //实例化队列
+        dataQueue = new LinkedBlockingQueue<T>(100);
+    }
+
+    /**
+     * 添加数据到队列
+     * @param dataBean
+     * @return
+     */
+    public boolean doOfferData(T dataBean) {
+        try {
+            return dataQueue.offer(dataBean, 2, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 弹出队列数据
+     * @return
+     */
+    public T doPollData() {
+        try {
+            return dataQueue.poll(2, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 获得队列数据个数
+     * @return
+     */
+    public int doGetQueueCount() {
+        return dataQueue.size();
+    }
+
+}
+```
+
+
+
+```java
+@Test
+public void test_DataQueueStack() {
+    DataQueueStack<String> dataQueueStack = new DataQueueStack<>();
+    dataQueueStack.doOfferData("a");
+    dataQueueStack.doOfferData("b");
+    dataQueueStack.doOfferData("c");
+
+    System.out.println("元素个数：" + dataQueueStack.doGetQueueCount());
+    System.out.println("弹出元素：" + dataQueueStack.doPollData());
+    System.out.println("弹出元素：" + dataQueueStack.doPollData());
+    System.out.println("弹出元素：" + dataQueueStack.doPollData());
+}
+```
+
+- 这是一个 LinkedBlockingQueue 队列使用案例，一方面存储数据，一方面从队列中获取进行消费；
+- 因为这是一个阻塞队列，所以在获取元素的时候，如果队列为空，会进行阻塞；
+- LinkedBlockingQueue 是一个阻塞队列，内部由两个 ReentrantLock 来实现出入队列的线程安全，由各自的 Condition 对象的 await 和 signal 来实现等待和唤醒功能。
 
 
 
