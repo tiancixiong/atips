@@ -24,6 +24,7 @@ const sidebar = {
         '/java/concurrent/java-concurrent-overview/',
         '/java/concurrent/java-concurrent-keywords-synchronized/',
         '/java/concurrent/java-concurrent-keywords-volatile/',
+        '/java/concurrent/java-concurrent-CAS/',
         '/java/concurrent/java-concurrent-locks/',
         '/java/concurrent/java-concurrent-locks-AQS/',
         '/java/concurrent/java-concurrent-locks-ReentrantLock/',
