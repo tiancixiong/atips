@@ -18,15 +18,15 @@ RabbitMQ 是基于AMQP的一款消息管理系统，采用 Erlang 语言实现�
 
 1. 安装Erlang，下载地址：[otp_win64_21.3.exe](http://erlang.org/download/otp_win64_21.3.exe)
 
-   ![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/arch_screen_53.png)
+   ![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/arch_screen_53.png)
 
 2. 安装RabbitMQ，下载地址：[rabbitmq-server-3.7.14.exe](https://dl.bintray.com/rabbitmq/all/rabbitmq-server/3.7.14/rabbitmq-server-3.7.14.exe)
 
-   ![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/arch_screen_54.png)
+   ![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/arch_screen_54.png)
 
 3. 安装完成后，进入 RabbitMQ 安装目录下的 `sbin` 目录
 
-   ![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/arch_screen_55.png)
+   ![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/arch_screen_55.png)
 
 4. 在地址栏输入 cmd 并回车启动命令行，然后输入以下命令启动管理功能：
 
@@ -34,11 +34,11 @@ RabbitMQ 是基于AMQP的一款消息管理系统，采用 Erlang 语言实现�
    rabbitmq-plugins enable rabbitmq_management
    ```
 
-   ![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/arch_screen_56.png)
+   ![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/arch_screen_56.png)
 
 5. 访问地址查看是否安装成功：[http://localhost:15672/](http://localhost:15672/)
 
-   ![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/arch_screen_57.png)
+   ![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/arch_screen_57.png)
 
 6. 输入账号密码并登录：guest guest
 
@@ -54,11 +54,11 @@ RabbitMQ 是基于AMQP的一款消息管理系统，采用 Erlang 语言实现�
 
 RabbitMQ 的整体模型架构如下：
 
-![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/20201124213040.png)
+![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/20201124213040.png)
 
 RabbitMQ 的消息模型：
 
-![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/arch_screen_52.png)
+![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/arch_screen_52.png)
 
 | 标志 | 中文名     | 英文名   | 描述                                             |
 | ---- | ---------- | -------- | ------------------------------------------------ |
@@ -116,11 +116,11 @@ RabbitMQ 的消息模型：
 
   - 添加虚拟主机
 
-    ![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1334716-20210613171451601-611682538.png)
+    ![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1334716-20210613171451601-611682538.png)
 
 - 关系图
 
-  ![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1334716-20210614001238268-1217658587.png)
+  ![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1334716-20210614001238268-1217658587.png)
 
 - 主要端口
 
@@ -139,7 +139,7 @@ RabbitMQ提供了6种消息模型，第6种其实是RPC，并不是MQ，因此�
 
 但是其实3、4、5这三种都属于订阅模型，只不过进行路由的方式不同。
 
-![1527068544487](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1527068544487.png)
+![1527068544487](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1527068544487.png)
 
 我们通过一个 demo 案例来了解下 RabbitMQ 的工作方式。
 
@@ -192,7 +192,7 @@ RabbitMQ提供了6种消息模型，第6种其实是RPC，并不是MQ，因此�
 
 一个消息生成者对应一个消息消费者，点对点。
 
-![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1334716-20210614113240047-2128567438.png)
+![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1334716-20210614113240047-2128567438.png)
 
 - P（producer/ publisher）：生产者
 - C（consumer）：消费者
@@ -251,11 +251,11 @@ Process finished with exit code 0
 
 进入队列页面，可以看到新建了一个队列：`simple_queue`
 
-![image-20211112232231938](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112232231938.png)
+![image-20211112232231938](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211112232231938.png)
 
 点击队列名称，进入详情页，可以查看消息：
 
-![image-20211112232329323](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112232329323.png)
+![image-20211112232329323](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211112232329323.png)
 
 在控制台查看消息并不会将消息消费，所以消息还在。
 
@@ -302,7 +302,7 @@ public class Recv {
 
 这个时候，队列中的消息就没了：
 
-![image-20211112232622801](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112232622801.png)
+![image-20211112232622801](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211112232622801.png)
 
 我们发现，消费者已经获取了消息，但是程序没有停止，一直在监听队列中是否有新的消息。一旦有新的消息进入队列，就会立即打印。
 
@@ -378,11 +378,11 @@ String basicConsume(String queue, boolean autoAck, Consumer callback) throws IOE
 
 修改消费者，添加异常，如下：
 
-![1532764600849](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1532764600849.png)
+![1532764600849](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1532764600849.png)
 
 生产者不做任何修改，直接运行，消息发送成功：
 
-![image-20211112233414795](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112233414795.png)
+![image-20211112233414795](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211112233414795.png)
 
 运行消费者，程序抛出异常。但是消息依然被消费：
 
@@ -397,7 +397,7 @@ java.lang.ArithmeticException: / by zero
 	at java.lang.Thread.run(Thread.java:748)
 ```
 
-![image-20211112233535862](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112233535862.png)
+![image-20211112233535862](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211112233535862.png)
 
 
 
@@ -405,23 +405,23 @@ java.lang.ArithmeticException: / by zero
 
 修改消费者，把自动改成手动（去掉之前制造的异常）：
 
-![1532764831241](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1532764831241.png)
+![1532764831241](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1532764831241.png)
 
 生产者不变，再次运行：
 
-![image-20211112233414795](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112233414795.png)
+![image-20211112233414795](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211112233414795.png)
 
 运行消费者：
 
-![image-20211112233852905](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112233852905.png)
+![image-20211112233852905](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211112233852905.png)
 
 但是，查看管理界面，发现：
 
-![image-20211112234014591](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112234014591.png)
+![image-20211112234014591](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211112234014591.png)
 
 停掉消费者的程序，发现：
 
-![image-20211112234111722](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112234111722.png)
+![image-20211112234111722](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211112234111722.png)
 
 这是因为虽然我们设置了手动 ACK，但是代码中并没有进行消息确认！所以消息并未被真正消费掉，当我们关掉这个消费者，消息的状态再次变回 Ready。
 
@@ -429,11 +429,11 @@ java.lang.ArithmeticException: / by zero
 
 下面进行手动发送ACK确认。修改消费者代码：
 
-![1532765123282](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1532765123282.png)
+![1532765123282](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1532765123282.png)
 
 执行消费者：
 
-![image-20211112233535862](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211112233535862.png)
+![image-20211112233535862](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211112233535862.png)
 
 消息消费成功！
 
@@ -447,7 +447,7 @@ java.lang.ArithmeticException: / by zero
 
 工作队列，又称任务队列。主要思想就是避免执行资源密集型任务时，必须等待它执行完成。相反我们稍后完成任务，我们将任务封装为消息并将其发送到队列。 在后台运行的工作进程将获取任务并最终执行作业。当你运行许多消费者时，任务将在他们之间共享，但是**一个消息只能被一个消费者获取**。
 
-![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1334716-20210614160200510-1459212516.png)
+![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1334716-20210614160200510-1459212516.png)
 
 - 消息生产能力大于消费能力，增加多几个消费节点；
 - 和简单队列类似，增加多个几个消费节点，处于竞争关系；
@@ -592,7 +592,7 @@ public class Recv2 {
 
 接下来，先启动两个消费者，然后再启动生产者发送50条消息：
 
-![1527085826462](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1527085826462.png)
+![1527085826462](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1527085826462.png)
 
 可以发现，两个消费者各自消费了 25 条消息，而且各不相同，这就实现了任务的分发。
 
@@ -612,13 +612,13 @@ public class Recv2 {
 
 我们可以使用 `basicQos` 方法和 `prefetchCount = 1` 设置。 这告诉 RabbitMQ 一次不要向工作人员发送多于一条消息。 或者换句话说，不要向工作人员发送新消息，直到它处理并确认了前一个消息。 相反，它会将其分派给不是仍然忙碌的下一个工作人员。
 
-![1532765689904](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1532765689904.png)
+![1532765689904](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1532765689904.png)
 
 > 需在执行比较慢的消费者1中进行设置，在生产者中设置无效。
 
 再次测试：
 
-![image-20211113082109524](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211113082109524.png)
+![image-20211113082109524](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211113082109524.png)
 
 
 
@@ -630,7 +630,7 @@ public class Recv2 {
 
 订阅模型示意图：
 
-![1527086284940](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1527086284940.png)
+![1527086284940](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1527086284940.png)
 
 1. 1个生产者，多个消费者；
 
@@ -670,7 +670,7 @@ Exchange 类型有以下几种：
 
 流程图：
 
- ![1527086564505](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1527086564505.png)
+ ![1527086564505](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1527086564505.png)
 
 在广播模式下，消息发送流程是这样的：
 
@@ -687,7 +687,7 @@ Exchange 类型有以下几种：
 
 在 `/yolo` 虚拟机下创建一个叫 `fanout_exchange_test`，类型是 **fanout** 的交换机
 
-![image-20211113084303117](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211113084303117.png)
+![image-20211113084303117](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211113084303117.png)
 
 
 
@@ -838,7 +838,7 @@ public class Recv2 {
 
 先运行两个消费者，然后再允许生产者发送1条消息：
 
-![image-20211113102833929](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211113102833929.png)
+![image-20211113102833929](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211113102833929.png)
 
 
 
@@ -848,7 +848,7 @@ public class Recv2 {
 
 **Direct**：
 
- ![1532766437787](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1532766437787.png)
+ ![1532766437787](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1532766437787.png)
 
 - P：生产者，向Exchange发送消息，发送消息时，会指定一个routing key；
 
@@ -868,7 +868,7 @@ public class Recv2 {
 
 name：`direct_exchange_test`，type：`direct`
 
-![image-20211113171906922](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211113171906922.png)
+![image-20211113171906922](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211113171906922.png)
 
 
 
@@ -1006,7 +1006,7 @@ public class Recv2 {
 
 先启动消费者1、消费者2；然后多次启动生产者，分别发送insert、update、delete消息。
 
-![image-20211113173921074](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211113173921074.png)
+![image-20211113173921074](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211113173921074.png)
 
 - 消费者1，只消费了update和delete消息
 - 消费者2，三种消息都消费了
@@ -1027,7 +1027,7 @@ public class Recv2 {
   - `*`：匹配不多不少恰好1个词
     - 例如：`audit.*`，只能匹配 `audit.irs`
 
- ![1532766712166](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1532766712166.png)
+ ![1532766712166](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1532766712166.png)
 
 上图这个例子中，我们将发送所有描述动物的消息。消息将使用由三个字（三个单词，两个点）组成的 routing key 发送。路由关键字中的第一个单词将描述速度，第二个颜色和第三个种类：`<speed>.<color>.<species>`。
 
@@ -1052,7 +1052,7 @@ lazy.pink.rabbit 		匹配 lazy.# 和 *.*.rabbit，进入同一个队列Q2(消息
 
 name：`topic_exchange_test`；type：`topic`
 
-![image-20211113185032178](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211113185032178.png)
+![image-20211113185032178](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211113185032178.png)
 
 
 
@@ -1190,7 +1190,7 @@ public class Resv2 {
 
 先启动消费者1、消费者2；然后多次启动生产者分别发送各种 routingKey 不同的消息：
 
-![image-20211113185421314](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211113185421314.png)
+![image-20211113185421314](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211113185421314.png)
 
 
 
@@ -1220,21 +1220,21 @@ RabbitMQ 不允许你绑定一个非持久化（non-durable）的交换机和一
 
 由于之前案例中交换机 `topic_exchange_test` 是非持久化的，这里需要先将其删除，然后再新建一个同名的但是是持久化的交换机：
 
- ![image-20211113214713785](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211113214713785.png)
+ ![image-20211113214713785](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211113214713785.png)
 
- ![image-20211113214844869](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211113214844869.png)
+ ![image-20211113214844869](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211113214844869.png)
 
 通过点击交换机名称进入详情页，找到 `Delete` 选项将其删除。
 
 然后再新建一个同名为的、持久化的交换机：
 
-![image-20211113215046636](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211113215046636.png)
+![image-20211113215046636](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211113215046636.png)
 
 ---
 
 然后，修改 ***生产者***：
 
- ![1532766951432](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1532766951432.png)
+ ![1532766951432](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1532766951432.png)
 
 ```java
 Exchange.DeclareOk exchangeDeclare(String exchange, String type, boolean durable) throws IOException;
@@ -1248,19 +1248,19 @@ Exchange.DeclareOk exchangeDeclare(String exchange, String type, boolean durable
 
 同样的，需要将原来非持久化的队列 `topic_exchange_queue_1`和`topic_exchange_queue_2` 删除，然后新建持久化的队列：
 
- ![image-20211113215433835](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211113215433835.png)
+ ![image-20211113215433835](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211113215433835.png)
 
- ![image-20211113215625732](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211113215625732.png)
+ ![image-20211113215625732](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211113215625732.png)
 
 新建持久化的队列：
 
- ![image-20211113215756090](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211113215756090.png)
+ ![image-20211113215756090](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211113215756090.png)
 
 ---
 
 修改 ***消费者***：
 
- ![1532766981230](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1532766981230.png)
+ ![1532766981230](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1532766981230.png)
 
 
 
@@ -1268,7 +1268,7 @@ Exchange.DeclareOk exchangeDeclare(String exchange, String type, boolean durable
 
 生产者：
 
- ![1532767057491](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1532767057491.png)
+ ![1532767057491](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1532767057491.png)
 
 
 
@@ -1352,7 +1352,7 @@ public class Listener {
 
 Spring 为 AMQP 提供了统一的消息处理模板：***AmqpTemplate***，非常方便的发送消息，其发送方法：
 
- ![1527090258083](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/1527090258083.png)
+ ![1527090258083](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/1527090258083.png)
 
 红框圈起来的是比较常用的3个方法，分别是：
 
@@ -1386,13 +1386,13 @@ public class MqDemo {
 
 创建交换机和队列，：
 
- ![image-20211114135903787](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211114135903787.png)
+ ![image-20211114135903787](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211114135903787.png)
 
- ![image-20211114135920910](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211114135920910.png)
+ ![image-20211114135920910](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211114135920910.png)
 
 运行代码，查看日志：
 
- ![image-20211114140005780](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/mq/image-20211114140005780.png)
+ ![image-20211114140005780](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/mq/image-20211114140005780.png)
 
 
 

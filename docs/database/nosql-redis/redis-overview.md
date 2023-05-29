@@ -6,7 +6,7 @@
 
 Redis 是一种支持 `key-value` 等多种数据结构的存储系统。可用于缓存，事件发布或订阅，高速队列等场景。支持网络，提供字符串，哈希，列表，队列，集合结构直接存取，基于内存，可持久化。
 
-![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/nosql-redis/20200713105627.png)
+![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/20200713105627.png)
 
 
 
@@ -15,7 +15,7 @@ Redis 是一种支持 `key-value` 等多种数据结构的存储系统。可用�
 - Redis入门 - 数据类型：5 种基础数据类型
   - Redis 所有的 **key**（键）都是字符串。我们在谈基础数据结构时，讨论的是存储**值**的数据类型，主要包括常见的5种数据类型，分别是：String、List、Set、Zset、Hash。
 
-![Redis 数据类型](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/nosql-redis/20200226113813.png)
+![Redis 数据类型](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/20200226113813.png)
 
 - Redis入门 - 数据类型：3 种特殊类型
   - Redis 除了上文中 5 种基础数据类型，还有三种特殊的数据类型，分别是 *HyperLogLogs*（基数统计）， *Bitmaps* (位图) 和 *geospatial* （地理位置）。
@@ -26,7 +26,7 @@ Redis 是一种支持 `key-value` 等多种数据结构的存储系统。可用�
 
 为了防止数据丢失以及服务重启时能够恢复数据，Redis 支持数据的持久化，主要分为两种方式，分别是 *RDB* 和 *AOF*；当然实际场景下还会使用这两种的混合模式。
 
-![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/nosql-redis/20200224214047.png)
+![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/20200224214047.png)
 
 
 
@@ -46,7 +46,7 @@ Redis 是一种支持 `key-value` 等多种数据结构的存储系统。可用�
 
 > 关键词：`CLUSTER MEET`、`Hash slot`、`MOVED`、`ASK`、`SLAVEOF no one`、`redis-trib`
 
-![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/nosql-redis/20200713100613.png)
+![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/20200713100613.png)
 
 
 
@@ -56,7 +56,7 @@ Redis 是一种支持 `key-value` 等多种数据结构的存储系统。可用�
 
 我们知道要避免单点故障，即保证高可用，便需要冗余（副本）方式提供集群服务。而 Redis 提供了主从库模式，以保证数据副本的一致，主从库之间采用的是读写分离的方式。本文主要阐述 Redis 的主从复制。
 
-![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/nosql-redis/20200712182603.png)
+![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/20200712182603.png)
 
 
 
@@ -70,7 +70,7 @@ Redis 是一种支持 `key-value` 等多种数据结构的存储系统。可用�
 
 在上文主从复制的基础上，如果注节点出现故障该怎么办呢？ 在 Redis 主从集群中，哨兵机制是实现主从库自动切换的关键机制，它有效地解决了主从复制模式下故障转移的问题。
 
-![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/nosql-redis/20200713072747.png)
+![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/20200713072747.png)
 
 
 

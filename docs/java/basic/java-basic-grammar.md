@@ -471,7 +471,7 @@ Throwable 是 Java 语言中所有错误和异常的超类，可以用来表示�
   - 检查性异常：除了 Error 和 RuntimeException 的其它异常。Javac 强制要求程序员为这样的异常做预备处理工作（使用 try…catch…finally 或者 throws）。在方法中要么用 try-catch 语句捕获它并处理，要么用throws 声明抛出它，否则编译不会通过；
   - 运行时异常：是程序运行时错误，例如 除0 会引发 Arithmetic Exception，此时程序崩溃并且无法恢复。
 
-![异常的结构](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/basic/throwable.png)
+![异常的结构](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/basic/throwable.png)
 
 
 

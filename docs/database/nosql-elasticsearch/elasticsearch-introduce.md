@@ -206,7 +206,7 @@ Elasticsearch中支持的数据类型非常丰富：
 
 为了方便理解，作一个ES和数据库的对比：
 
-![img](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/nosql-elasticsearch/1227483-20180616115111006-1555585138.png)
+![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-elasticsearch/1227483-20180616115111006-1555585138.png)
 
 
 
@@ -219,7 +219,7 @@ Elasticsearch中支持的数据类型非常丰富：
 - 实际的 node 上的 `primary shard` 处理请求，然后将数据同步到 `replica node`。
 - `coordinating node` 如果发现 `primary node` 和所有 `replica node` 都搞定之后，就返回响应结果给客户端。
 
-![es-write](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/nosql-elasticsearch/es-write.png)
+![es-write](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-elasticsearch/es-write.png)
 
 ### ES 读数据过程
 
@@ -255,7 +255,7 @@ j2ee特别牛
 
 ### 写数据底层原理
 
-![es-write-detail](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/nosql-elasticsearch/es-write-detail.png)
+![es-write-detail](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-elasticsearch/es-write-detail.png)
 
 先写入内存 buffer，在 buffer 里的时候数据是搜索不到的；同时将数据写入 translog 日志文件。
 

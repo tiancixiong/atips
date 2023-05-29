@@ -4,7 +4,7 @@
 
 *Set* 注重独一无二的性质，该体系集合用于存储无序（存入和取出的顺序不一定相同）元素，**不允许有重复的元素**。对象的相等性本质是对象的 **hashCode** 值（Java 是依据对象的内存地址计算出的此序号）判断的，如果想要让两个不同的对象视为相等的，就必须覆盖 *Object* 的 `hashCode()` 方法和 `equals()` 方法。
 
-![image-20211023214554753](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211023214554753.png)
+![image-20211023214554753](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211023214554753.png)
 
 - ***Set*** 继承了 Collection 的接口。实际上，Set 就是一个 Collection，只是行为不同（这是继承和多态思想的典型应用，表现不同的行为）；
 - ***SortedSet*** 继承了 *Set* 的接口。*SortedSet* 中的内容是排序的唯一值，排序的方法是通过比较器(Comparator)；

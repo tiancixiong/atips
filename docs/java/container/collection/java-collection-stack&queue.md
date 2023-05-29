@@ -8,13 +8,13 @@
 
 > LIFO： last-in-first-out，即后进先出。
 
-![image-20211021114046977](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211021114046977.png)
+![image-20211021114046977](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211021114046977.png)
 
 ### 队列
 
 队列（***Queue***）是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。它是**先进先出**（**FIFO**）集合。进行插入操作的端称为队尾，进行删除操作的端称为队头。
 
-![image-20211021114214138](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211021114214138.png)
+![image-20211021114214138](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211021114214138.png)
 
 
 
@@ -97,7 +97,7 @@ public synchronized void addElement(E obj) {
 *ArrayDeque* 是基于数组实现的可动态扩容的双端队列，也就是说你可以在队列的头和尾同时插入和弹出元素。当元素数量超过数组初始化长度时，则需要扩容和迁移数据。
 数据结构和操作，如下（TODO：图片有误，图中`push()`应是头插，`offerLast()`应是尾插，后面需修正）：
 
-![image-20211021160523199](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211021160523199.png)
+![image-20211021160523199](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211021160523199.png)
 
 1. 双端队列是基于数组实现，所以扩容就是通过 `System.arraycopy` 进行迁移数据操作；
 2. `push()` 向头部插入、`add()` 向结尾插入；这样两端都满足后进先出；
@@ -327,7 +327,7 @@ tail(尾节点)：4
 *[LinkedList](https://blog.xiongtianci.com/atips/java/container/collection/java-collection-linkedlist.html)* 天生就可以支持双端队列，而且从头尾取数据也是它时间复杂度 *O(1)* 的。同时数据的插入和删除也不需要像数组队列那样拷贝数据，虽然 *Linkedlist* 有这些优点，但不能说 *ArrayDeque* 因为有数组复制性能比它低。
 *LinkedList* 数据结构：
 
-![image-20211022123909718](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211022123909718.png)
+![image-20211022123909718](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211022123909718.png)
 
 *LinkedList* 也提供了 `push()`、`add()` 等一组头尾插入元素的函数，与使用 *ArrayDeque* 是一样的，功能上没有差异。
 
@@ -587,7 +587,7 @@ public E take() throws InterruptedException {
 
 ### 队列类结构
 
-![image-20211022153714538](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/collection/image-20211022153714538.png)
+![image-20211022153714538](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211022153714538.png)
 
 | 类型  | 实现                  | 描述                                   |
 | ----- | --------------------- | -------------------------------------- |

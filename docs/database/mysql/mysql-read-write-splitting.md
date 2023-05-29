@@ -14,7 +14,7 @@
 
 读写分离常用代理方式来实现，代理服务器接收应用层传来的读写请求，然后决定转发到哪个服务器。
 
-![image-20211102202811002](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/mysql/image-20211102202811002.png)
+![image-20211102202811002](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/image-20211102202811002.png)
 
 
 
@@ -40,7 +40,7 @@ Gaea 是小米中国区电商研发部研发的基于 MySql 协议的数据库�
 
 - 安装Go语言环境，下载地址：[https://golang.org/dl/](https://golang.org/dl/)
 
-![](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/mysql/gaea_use_01.png)
+![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/gaea_use_01.png)
 
 - 下载完成后解压到 `/mydata` 目录下；
 
@@ -256,7 +256,7 @@ docker build -t gaea:1.2.2 .
 
 - 构建成功控制台输出：
 
-![](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/mysql/gaea_use_12.png)
+![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/gaea_use_12.png)
 
 - 将本地安装的Gaea配置文件复制到`/mydata/gaea-docker/etc/`目录下：
 
@@ -278,31 +278,31 @@ docker run -p 13306:13306 --name gaea \
 
 - 通过Navicat连接到Gaea代理，注意此处账号密码为Gaea的namespace中配置的内容，端口为Gaea的服务端口；
 
-![](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/mysql/gaea_use_05.png)
+![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/gaea_use_05.png)
 
 - 通过Navicat分别连接到主库和从库，用于查看数据，此时建立了以下三个数据库连接；
 
-![](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/mysql/gaea_use_06.png)
+![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/gaea_use_06.png)
 
 - 通过`stop slave`命令关闭`mysql-slave`实例的主从复制功能：
 
-![](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/mysql/gaea_use_07.png)
+![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/gaea_use_07.png)
 
 - 通过Gaea代理在`test`表中插入一条数据：
 
-![](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/mysql/gaea_use_08.png)
+![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/gaea_use_08.png)
 
 - 在主库中查看`test`表的数据，发现已有该数据：
 
-![](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/mysql/gaea_use_09.png)
+![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/gaea_use_09.png)
 
 - 在从库中查看`test`表的数据，发现没有该数据，证明写操作走的是主库：
 
-![](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/mysql/gaea_use_10.png)
+![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/gaea_use_10.png)
 
 - 直接在代理中查看`test`表中的数据，发现没有该数据，证明读操作走的是从库。
 
-![](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/database/mysql/gaea_use_11.png)
+![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/gaea_use_11.png)
 
 ### 结合SpringBoot使用
 

@@ -15,19 +15,19 @@
 
 点击左侧 `Environments`，系统中默认已经存在了一个 `Globals` 的全局环境，可以在其中存放一些通用的公共变量。先在这里写入 `host` 和 `port` 信息：
 
-![image-20211011084255809](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211011084255809.png)
+![image-20211011084255809](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211011084255809.png)
 
 在需要使用变量时，可以在访问接口时使用双大括号引用变量，以 `{{variable}}` 的方式进行引用：
 
-![image-20211011085001157](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211011085001157.png)
+![image-20211011085001157](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211011085001157.png)
 
 以上是使用全局环境变量，此外我们也可以创建新的环境来存放变量。
 
-![image-20211011085706552](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211011085706552.png)
+![image-20211011085706552](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211011085706552.png)
 
 这里创建了 本地环境、测试环境、生产环境 共三个环境，这样我们可以直接在多个环境间进行切换。测试接口的过程中，就不需要频繁的改动接口的地址了。
 
-![image-20211011085849973](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211011085849973.png)
+![image-20211011085849973](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211011085849973.png)
 
 ---
 
@@ -53,7 +53,7 @@ public String getStr(@RequestParam String str) {
 
 在 Params 选项卡中添加参数，key 为 str，value 采用大括号引用变量，变量名自定义。
 
-![image-20211011092412037](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211011092412037.png)
+![image-20211011092412037](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211011092412037.png)
 
 在 Pre-request Script 选项卡中编写脚本，设置 str 参数的值，在请求中传给后端：
 
@@ -61,7 +61,7 @@ public String getStr(@RequestParam String str) {
 pm.collectionVariables.set("str_value","jack");
 ```
 
-![image-20211011092549537](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211011092549537.png)
+![image-20211011092549537](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211011092549537.png)
 
 > 关于脚本中 `pm.*` 使用的详细信息，请查看 [Postman JavaScript reference](https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/)
 
@@ -85,7 +85,7 @@ pm.sendRequest("localhost:8099/hello/before",function(err,response){
 
 Console 控制台中的打印顺序可以看到，是在先执行了 `Pre-request` 中的请求后，才去执行的真正目标接口的请求。
 
-![image-20211011101013521](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211011101013521.png)
+![image-20211011101013521](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211011101013521.png)
 
 
 
@@ -120,11 +120,11 @@ pm.collectionVariables.set("TOKEN",response.json().data.token);
 
 查看 Collection 中的变量，已经保存了刚才获取的 token：
 
-![image-20211011111940912](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211011111940912.png)
+![image-20211011111940912](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211011111940912.png)
 
 在需要认证的请求头 `Headers` 中，引用这个 token，就可以正常的调用接口了：
 
-![image-20211011112700886](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211011112700886.png)
+![image-20211011112700886](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211011112700886.png)
 
 ---
 
@@ -168,7 +168,7 @@ const loginRequest = {
 pm.collectionVariables.set("TOKEN",pm.response.json().data.token);
 ```
 
-![image-20211011130542669](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211011130542669.png)
+![image-20211011130542669](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211011130542669.png)
 
 然后其他接口通过 `{{TOKEN}}` 就可以使用 token 了
 
@@ -189,7 +189,7 @@ Postman 断言的一些特点：
 
 Postman 已经给我们内置了一些常用的断言 。用的时候，只需从 Tests 选项卡右侧点击 **SNIPPETS** 其中一个断言，就会在文本框中自动生成对应断言代码块 。
 
-![image-20211011145112432](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/software/image-20211011145112432.png)
+![image-20211011145112432](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211011145112432.png)
 
 > `pm` 是 Postman 的主要对象，一般通过它来调用函数、数据等。
 

@@ -26,7 +26,7 @@ public int hashCode() {
 
 上面第 8 行代码中写死了是固定值 31；我们再看下[官方文档](https://docs.oracle.com/javase/8/docs/api/index.html)中的解释：
 
-![image-20211023200104454](//tiancixiong.coding.net/p/atips-cdn/d/atips-cdn/git/raw/images/images/java/container/image-20211023200104454.png)
+![image-20211023200104454](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/image-20211023200104454.png)
 
 官方给出的计算哈希值公司是：`s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]`；`s[i]` 是字符串第 `i` 字符；`n` 是字符串长度。
 
