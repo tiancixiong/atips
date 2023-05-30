@@ -168,7 +168,7 @@ Document 使用 JSON 格式表示，下面是一个例子：
 
 Elasticsearch中支持的数据类型非常丰富：
 
-![Field datatypes](img/1531712631982.png)
+![Field datatypes](https://jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-elasticsearch/1531712631982.png)
 
 我们说几个关键的：
 
