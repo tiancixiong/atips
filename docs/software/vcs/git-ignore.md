@@ -132,7 +132,7 @@ git add .
 
 
 
-## 参考文档
+## 参考资料
 
 - [.gitignore配置运维总结](https://www.cnblogs.com/kevingrace/p/5690241.html) - 博客园
 - Git 官方文档(gitignore)：[英文](https://git-scm.com/docs/gitignore)、[中文](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E8%AE%B0%E5%BD%95%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0%E5%88%B0%E4%BB%93%E5%BA%93) 

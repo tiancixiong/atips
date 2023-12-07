@@ -585,7 +585,7 @@ protected void addSingletonFactory(String beanName, ObjectFactory<?> singletonFa
 
 
 
-## 参考文献
+## 参考资料
 
 - [Spring 官网](https://spring.io/)、[docs/5.0.0.M5](https://docs.spring.io/spring-framework/docs/5.0.0.M5/spring-framework-reference/html/)、[Spring 官网案例](https://spring.io/guides) - 英文
 - [Spring 开发](https://www.liaoxuefeng.com/wiki/1252599548343744/1266263217140032) - 廖雪峰

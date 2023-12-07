@@ -471,7 +471,7 @@ public class synchronized错误案例_锁粒度不当 {
 
 
 
-## 参考文献
+## 参考资料
 
 - https://crossoverjie.top/JCSprout/#/thread/Synchronize
 - [github-javaguide](https://snailclimb.gitee.io/javaguide/#/docs/java/concurrent/java%E5%B9%B6%E5%8F%91%E8%BF%9B%E9%98%B6%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93)

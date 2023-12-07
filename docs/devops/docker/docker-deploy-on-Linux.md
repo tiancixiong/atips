@@ -352,7 +352,7 @@ docker run -p 27017:27017 --name mongo \
 
 
 
-## 参考文献
+## 参考资料
 
 - http://www.macrozheng.com/#/deploy/mall_deploy_docker
 - https://www.thisfaner.com/p/docker-deploy-dev-env/

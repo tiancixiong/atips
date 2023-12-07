@@ -324,7 +324,7 @@ mvn dependency:tree -Dverbose -Dincludes=org.springframework:spring-tx
 
 
 
-### 参考文献
+### 参考资料
 
 - [解决 Maven Jar 包冲突](https://mp.weixin.qq.com/s/Eu2SmJKC7LLkk9DnGzyM6w) - 公众号@日拱一兵
 

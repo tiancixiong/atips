@@ -895,7 +895,7 @@ public class AtomicReferenceFieldUpdaterDemo {
 
 
 
-## 参考链接
+## 参考资料
 
 - [JUC原子类: CAS, Unsafe和原子类详解](https://www.pdai.tech/md/java/thread/java-thread-x-juc-AtomicInteger.html#juc%E5%8E%9F%E5%AD%90%E7%B1%BB-cas-unsafe%E5%92%8C%E5%8E%9F%E5%AD%90%E7%B1%BB%E8%AF%A6%E8%A7%A3)
 - [github-dunwu](https://dunwu.github.io/javacore/concurrent/Java%E5%B9%B6%E5%8F%91%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6.html#_4-1-cas-%E7%9A%84%E8%A6%81%E7%82%B9)

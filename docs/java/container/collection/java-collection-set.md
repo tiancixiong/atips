@@ -106,6 +106,6 @@ public HashSet(int initialCapacity, float loadFactor) {
 
 
 
-## 参考链接
+## 参考资料
 
 - https://dunwu.github.io/javacore/container/java-container-set.html

@@ -84,7 +84,7 @@ Closes #123, #245, #992
 
 
 
-## 参考文献
+## 参考资料
 
 - [Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html) - 阮一峰
 - [代码安全指南](https://github.com/Tencent/secguide/blob/main/CONTRIBUTING.md#i-commit-mesage-%E7%BC%96%E5%86%99%E6%8C%87%E5%BC%95) - 腾讯

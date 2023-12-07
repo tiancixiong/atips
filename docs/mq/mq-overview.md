@@ -167,7 +167,7 @@ AMQP  提供了五种消息模型：
 
 
 
-## 参考文献
+## 参考资料
 
 - [doocs.gitee.io/advanced-java](https://doocs.gitee.io/advanced-java/#/./docs/distributed-system/distributed-system-interview)
 - [gitee@veal98/CS-Wiki](gitee/v)

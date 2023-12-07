@@ -1328,7 +1328,7 @@ AQS 中使用 `tryAcquireSharedNanos(int arg)` 方法获取超时等待式的共
 
 
 
-## 参考文献
+## 参考资料
 
 - [dunwu/javacore](https://github.com/dunwu/javacore/blob/master/docs/concurrent/Java%E9%94%81.md)
 - [Java 并发编程：Lock](https://www.cnblogs.com/dolphin0520/p/3923167.html)

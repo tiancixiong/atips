@@ -296,6 +296,6 @@ select deptno from emp union select deptno from dept
 
 
 
-## 参考文献
+## 参考资料
 
 - http://www.macrozheng.com/#/reference/mysql

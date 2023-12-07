@@ -172,7 +172,7 @@ thread -b #找出当前阻塞其他线程的线程
 
 
 
-## 文档资料
+## 参考资料
 
 - 官方文档：[Arthas 用户文档](https://arthas.aliyun.com/doc/)
 - 开源地址：[Arthas - Github](https://github.com/alibaba/arthas)

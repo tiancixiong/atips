@@ -146,7 +146,7 @@ Redis 有序集合 Zset 和集合 Set 一样也是 String 类型元素的集合�
 
 
 
-## 参考文献
+## 参考资料
 
 - Redis 官网：[https://redis.io/topics/data-types](https://redis.io/topics/data-types)
 - https://www.pdai.tech/md/db/nosql-redis/db-redis-data-types.html

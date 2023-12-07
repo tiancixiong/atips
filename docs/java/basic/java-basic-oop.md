@@ -50,7 +50,7 @@
 
 
 
-## 参考文献
+## 参考资料
 
 - [hollischuang/toBeTopJavaer](https://hollischuang.github.io/toBeTopJavaer/#/basics/object-oriented/object-oriented-vs-procedure-oriented)
 - [h2pl/Java-Tutorial](https://github.com/h2pl/Java-Tutorial/blob/master/docs/java/basic/1%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80.md#java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7%EF%BC%88%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%89) - GitHub

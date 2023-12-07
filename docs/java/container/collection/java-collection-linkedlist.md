@@ -344,7 +344,7 @@ Node<E> node(int index) {
 
 
 
-## 参考文献
+## 参考资料
 
 - 《Java 面经手册》- 小傅哥
 - [Java LinkedList源码剖析](https://www.cnblogs.com/CarpenterLee/p/5457150.html)

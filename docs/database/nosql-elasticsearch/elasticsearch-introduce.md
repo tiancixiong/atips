@@ -352,7 +352,7 @@ buffer 每 refresh 一次，就会产生一个 `segment file`，所以默认情�
 
 
 
-## 参考文献
+## 参考资料
 
 - http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html
 - https://dunwu.github.io/db-tutorial/nosql/elasticsearch/elasticsearch-quickstart.html

@@ -321,6 +321,6 @@ ln -s /mydata/docker /var/lib/docker
 
 
 
-## 参考文献
+## 参考资料
 
 - http://www.macrozheng.com/#/../reference/docker

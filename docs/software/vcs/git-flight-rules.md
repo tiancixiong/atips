@@ -421,7 +421,7 @@ $ git update-ref refs/tags/<tag_name> <hash>
 
 
 
-## 参考文献
+## 参考资料
 
 - [git-flight-rules](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md) - GitHub
 

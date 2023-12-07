@@ -310,7 +310,7 @@ docker run -p 13306:13306 --name gaea \
 
 
 
-## 参考文献
+## 参考资料
 
 - http://www.macrozheng.com/#/reference/gaea
 

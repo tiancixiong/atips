@@ -285,6 +285,6 @@ zset
 
 
 
-## 参考文献
+## 参考资料
 
 - https://www.pdai.tech/md/db/nosql-redis/db-redis-data-type-special.html

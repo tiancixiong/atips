@@ -430,7 +430,7 @@ System.out.println(G7Countries);
 
 
 
-## 参考文献
+## 参考资料
 
 - [https://github.com/aalansehaiyang/java8-tutorial](https://github.com/aalansehaiyang/java8-tutorial)
 
