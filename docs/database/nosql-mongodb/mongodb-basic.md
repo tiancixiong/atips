@@ -8,7 +8,7 @@ NoSQL 数据库代表“**不仅仅是SQL**”或“不是SQL”。虽然 NoRELN
 
 传统的 RDBMS 使用 SQL 语法来存储和查询数据。相反，NoSQL 数据库系统包含可存储结构化，半结构化，非结构化和多态数据的多种数据库技术。
 
-![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-mongodb/mongo-x-basic-1.png)
+![img](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-mongodb/mongo-x-basic-1.png)
 
 
 
@@ -20,7 +20,7 @@ NoSQL 数据库的概念在处理大量数据的互联网巨头（例如 Google�
 
 这个问题的替代方案是在负载增加时将数据库负载分配到多个主机上。这种方法称为“横向扩展”。
 
-![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-mongodb/mongo-x-basic-2.png)
+![img](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-mongodb/mongo-x-basic-2.png)
 
 NoSQL 数据库是非关系数据库，因此在设计时考虑到 Web 应用程序，比关系数据库更好地扩展。
 
@@ -52,7 +52,7 @@ NoSQL 数据库是非关系数据库，因此在设计时考虑到 Web 应用程
   - 不需要对数据架构进行任何形式的定义
   - 提供同一域中的异构数据结构
 
-![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-mongodb/mongo-x-basic-3.png)
+![img](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-mongodb/mongo-x-basic-3.png)
 
 - **简单的API**
   - 提供易于使用的界面，用于存储和查询提供的数据
@@ -68,7 +68,7 @@ NoSQL 数据库是非关系数据库，因此在设计时考虑到 Web 应用程
   - 仅提供最终的一致性
   - 无共享架构。这样可以减少协调并提高分布。
 
-![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-mongodb/mongo-x-basic-4.png)
+![img](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-mongodb/mongo-x-basic-4.png)
 
 
 
@@ -156,7 +156,7 @@ MongoDB 将数据存储为一个文档，数据结构由键值(key=>value)对组
 
 下图显示了带有键值对的字段的示例。如下的例子中，`OrderID: 111` 是文档中定义的键值对之一。
 
-![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-mongodb/mongo-x-basic-5.png)
+![img](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-mongodb/mongo-x-basic-5.png)
 
 
 

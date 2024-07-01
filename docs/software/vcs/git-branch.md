@@ -13,7 +13,7 @@ release: 预发布分支。从develop分支分出。发布正式版本之前，�
 fixbug: 修补bug分支。从master分支分出。
 ```
 
-![image-20211015094523203](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/git-model@2x.png)
+![image-20211015094523203](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/software/git-model@2x.png)
 
 
 

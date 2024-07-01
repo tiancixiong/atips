@@ -4,7 +4,7 @@
 
 **本地仓库、远程仓库关系**：
 
-![image-20211028143854066](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211028143854066.png)
+![image-20211028143854066](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/software/image-20211028143854066.png)
 
 - **本地仓库**：
 - **私服**：私服中存储了公司的内部专用的jar！不仅如此，私服还充当了中央仓库的镜像，说白了就是一个代理
@@ -97,7 +97,7 @@ IDEA 中 Lifecycle ：
 
 maven 常用构建命令：
 
-![image-20211028153649935](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211028153649935.png)
+![image-20211028153649935](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/software/image-20211028153649935.png)
 
 
 
@@ -116,7 +116,7 @@ Maven 提倡使用一个共同的标准目录结构，Maven 使用约定优于�
 - `${basedir}/target/test-classes`：测试编译输出目录
 - `~/.m2/repository`、`C:\Users\Administrator\.m2`：maven 默认的本地仓库目录位置
 
-![image-20211028150357970](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211028150357970.png)
+![image-20211028150357970](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/software/image-20211028150357970.png)
 
 - `src/main`：这个目录中的内容最终会打包到 Jar/War 包中
   - `src/main/resources`
@@ -239,7 +239,7 @@ A 和 B 最终都依赖 Z，此时 A 的声明（pom.xml 中引入的顺序）�
 
 在高版本的 IDEA 中已经自带了 Maven 依赖管理插件，依次执行：打开 pom.xml 文件，在文件内右击，选择Maven，选择 Show Dependencies 即可查看 Maven 的依赖层级结构：
 
-![image-20211026151051714](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211026151051714.png)
+![image-20211026151051714](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/software/image-20211026151051714.png)
 
 在图中可以清楚的看到都使用了哪些依赖，它们的层级，是否有冲突的 jar 包等。冲突部分会用红色标出，同时标出 Maven 默认选择了哪个版本。
 
@@ -247,11 +247,11 @@ A 和 B 最终都依赖 Z，此时 A 的声明（pom.xml 中引入的顺序）�
 
 安装完插件，重启之后，打开 pom.xml 文件，在文件下面的 *Dependency Analyzer* 视图中便可以看到 Jar 包冲突的结果分析：
 
-![image-20211026162032598](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211026162032598.png)
+![image-20211026162032598](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/software/image-20211026162032598.png)
 
 此时，关于哪些 Jar 包冲突了，便一目了然。同时，可以右击冲突的 Jar 包，执行 **Exclude** 进行排除，在pom.xml中便会自动添加排除jar包的 `<exclusion>` 标签：
 
-![image-20211026170132602](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/software/image-20211026170132602.png)
+![image-20211026170132602](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/software/image-20211026170132602.png)
 
 
 

@@ -4,7 +4,7 @@
 
 在 Redis 中所有的 `key`（键）都是字符串。我们在谈基础数据结构时，讨论的是存储 `value`（值）的数据类型，主要包括常见的 5 种数据类型，分别是：String、List、Set、Zset、Hash。
 
-![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/db-redis-ds-1.jpeg)
+![img](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/db-redis-ds-1.jpeg)
 
 | 结构类型          | 结构存储的值                               | 结构的读写能力                                               |
 | ----------------- | ------------------------------------------ | ------------------------------------------------------------ |
@@ -24,7 +24,7 @@ String 类型是二进制安全的，意思是 redis 的 String 可以包含任�
 
 - 下图是一个 String 类型的实例，其中键为 hello，值为 world：
 
-![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/redis-datatype-string.png)
+![](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/redis-datatype-string.png)
 
 - **命令使用**
 
@@ -53,7 +53,7 @@ String 类型是二进制安全的，意思是 redis 的 String 可以包含任�
 
 - 图例
 
-![list](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/redis-datatype-list.png)
+![list](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/redis-datatype-list.png)
 
 - **命令使用**
 
@@ -82,7 +82,7 @@ Redis 中集合是通过哈希表实现的，所以添加，删除，查找的�
 
 - **图例**
 
-![set](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/redis-datatype-set.png)
+![set](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/redis-datatype-set.png)
 
 - **命令使用**
 
@@ -107,7 +107,7 @@ Redis hash 是一个 *String* 类型的 field（字段） 和 value（值） 的
 
 - 图例
 
-![hash](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/redis-datatype-hash.png)
+![hash](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/redis-datatype-hash.png)
 
 - **命令使用**
 
@@ -131,7 +131,7 @@ Redis 有序集合 Zset 和集合 Set 一样也是 String 类型元素的集合�
 
 - **图例**
 
-![zset](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/redis-datatype-zset.png)
+![zset](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-redis/redis-datatype-zset.png)
 
 - **命令使用**
 

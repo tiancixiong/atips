@@ -139,7 +139,7 @@ Stream（流）是一个来自数据源的元素队列，它可以支持聚合�
 
 看下所有API：
 
-![image-20211101172003759](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/java1.8/image-20211101172003759.png)
+![image-20211101172003759](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/java1.8/image-20211101172003759.png)
 
 
 

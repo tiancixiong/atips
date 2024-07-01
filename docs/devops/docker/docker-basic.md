@@ -58,11 +58,11 @@ docker pull java:8
 
 - 然后搜索需要的镜像：
 
-  ![image-20211102142132446](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/devops/docker/image-20211102142132446.png)
+  ![image-20211102142132446](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/devops/docker/image-20211102142132446.png)
 
 - 查看镜像支持的版本：
 
-  ![image-20211102142147289](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/devops/docker/image-20211102142147289.png)
+  ![image-20211102142147289](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/devops/docker/image-20211102142147289.png)
 
 - 进行镜像的下载操作：
 

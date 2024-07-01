@@ -14,7 +14,7 @@ Spring 最核心的两个技术思想是：IoC 和 AOP
 
 ## Spring Framework
 
-![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/spring/spring-overview.png)
+![img](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/spring/spring-overview.png)
 
 Spring Framework 主要包括几个模块：
 
@@ -172,7 +172,7 @@ Spring 3 中为 Bean 定义了 5 种作用域，5 种作用域说明如下：
 
 ### Spring Bean生命周期
 
-![image-20211026192731810](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/spring/image-20211026192731810.png)
+![image-20211026192731810](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/spring/image-20211026192731810.png)
 
 1. 对 Bean 进行实例化；
 

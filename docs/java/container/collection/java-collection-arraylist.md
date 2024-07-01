@@ -6,7 +6,7 @@
 
 *ArrayList* 实现了 *List* 接口，是顺序容器，即元素存放的数据与放进去的顺序相同，允许放入 `null` 元素，底层通过**数组实现**。
 
-![image-20211020091551051](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020091551051.png)
+![image-20211020091551051](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020091551051.png)
 
 
 
@@ -99,7 +99,7 @@ private void grow(int minCapacity) {
 }
 ```
 
-![image-20211020095730582](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020095730582.png)
+![image-20211020095730582](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020095730582.png)
 
 图中介绍了当 List 结合可用空间长度不足时则需要扩容，在 ArrayList 中主要包括如下步骤：
 
@@ -232,7 +232,7 @@ private void rangeCheckForAdd(int index) {
 
 #### 元素迁移
 
-![image-20211020161643231](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020161643231.png)
+![image-20211020161643231](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020161643231.png)
 
 指定位置插入的核心步骤包括：
 1. 判断 size 是否可以插入：`rangeCheckForAdd(index);`；
@@ -284,7 +284,7 @@ public boolean remove(Object o) {
 }
 ```
 
-![image-20211020164233475](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020164233475.png)
+![image-20211020164233475](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020164233475.png)
 结合上图理解，通过 `remove(int index)` 删除的过程主要包括：
 
 1. 校验是否越界：`rangeCheck(index);`；

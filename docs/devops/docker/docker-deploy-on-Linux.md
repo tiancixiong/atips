@@ -329,7 +329,7 @@ docker run -p 27017:27017 --name mongo \
 
 - 打开pom.xml中使用docker插件的注释
 
-  ![image-20211102114733160](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/devops/docker/image-20211102114733160.png)
+  ![image-20211102114733160](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/devops/docker/image-20211102114733160.png)
 
 - 修改dockerHost为你自己的docker服务器地址 ip:2375
 
@@ -340,7 +340,7 @@ docker run -p 27017:27017 --name mongo \
 
 - 构建镜像并上传：
 
-  ![image-20211102114805916](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/devops/docker/image-20211102114805916.png)
+  ![image-20211102114805916](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/devops/docker/image-20211102114805916.png)
 
   ```bash
   REPOSITORY            TAG                 IMAGE ID            CREATED              SIZE

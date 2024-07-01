@@ -8,7 +8,7 @@
 
 ## 数据结构
 
-![image-20211020193901436](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020193901436.png)
+![image-20211020193901436](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020193901436.png)
 
 *LinkedList* 底层**通过双向链表实现**。由双向链条 **next**、**prev**，把数据节点穿插起来。所以，在插入数据时，是不需要像我们上一章节介绍的 *ArrayList* 那样，扩容数组。
 
@@ -40,7 +40,7 @@ public class LinkedList<E>
     // ...
 }
 ```
- ![image-20211020193139419](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/linkedlist-base.png)
+ ![image-20211020193139419](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/container/collection/linkedlist-base.png)
 
 
 
@@ -63,7 +63,7 @@ public class LinkedList<E>
 
 先来看一张数据结构对比图，回顾下 ArrayList 的插入也和 LinkedList 插入做下对比，如下：
 
-![image-20211020200627443](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020200627443.png)
+![image-20211020200627443](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020200627443.png)
 
 - ***ArrayList*** 头插时，需要把数组元素通过 `Arrays.copyOf` 的方式把数组元素移位，如果容量不足还需要扩容；
 - ***LinkedList*** 头插时，则不需要考虑扩容以及移位问题，直接把元素定位到首位，接点链条链接上即可。
@@ -105,7 +105,7 @@ private void linkFirst(E e) {
 
 先来看一张数据结构对比图，回顾下 ArrayList 的插入也和 LinkedList 插入做下对比，如下：
 
-![image-20211020201922021](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020201922021.png)
+![image-20211020201922021](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020201922021.png)
 
 - *ArrayList* 尾插时，是不需要数据位移的，比较耗时的是数据的扩容时，需要拷贝迁移；
 - *LinkedList* 尾插时，与头插相比耗时点会在对象的实例化上。
@@ -144,7 +144,7 @@ void linkLast(E e) {
 
 先来看一张数据结构对比图，回顾下 ArrayList 的插入也和 LinkedList 插入做下对比，如下：
 
-![image-20211020203555056](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020203555056.png)
+![image-20211020203555056](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020203555056.png)
 
 - *ArrayList* 中间插入，首先我们知道他的定位时间复杂度是 O(1)，比较耗时的点在于数据迁移和容量不足的时候扩容；
 - `LinkedList` 中间插入，链表的数据实际插入时候并不会怎么耗时，但是它定位元素的时间复杂度是 O(n) ，所以这部分以及元素的实例化比较耗时。
@@ -217,7 +217,7 @@ void linkBefore(E e, Node<E> succ) {
 
 *ArrayList* 不同，*LinkedList* 删除不需要拷贝元素，它是找到元素位置，把元素前后链连接上。基本如下图；
 
-![image-20211020204657478](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020204657478.png)
+![image-20211020204657478](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020204657478.png)
 
 - 确定出要删除的元素 `x` ，把前后的链接进行替换；
 - 如果是删除首尾元素，操作起来会更加容易，这也就是为什么说插入和删除快。但中间位置删除，需要遍历找到对应位置。

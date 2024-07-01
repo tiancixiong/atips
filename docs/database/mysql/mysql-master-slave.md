@@ -14,7 +14,7 @@
 - **I/O 线程** : 负责从主服务器上读取二进制日志，并写入从服务器的中继日志中。
 - **SQL 线程** : 负责读取中继日志并重放其中的 SQL 语句。
 
-![image-20211102202215019](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/image-20211102202215019.png)
+![image-20211102202215019](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/mysql/image-20211102202215019.png)
 
 ---
 
@@ -25,7 +25,7 @@
 - MySql通过三个线程来完成主从库间的数据复制，其中Binlog Dump线程跑在主库上，I/O线程和SQL线程跑着从库上；
 - 当在从库上启动复制时，首先创建I/O线程连接主库，主库随后创建Binlog Dump线程读取数据库事件并发送给I/O线程，I/O线程获取到事件数据后更新到从库的中继日志Relay Log中去，之后从库上的SQL线程读取中继日志Relay Log中更新的数据库事件并应用，如下图所示。
 
-![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/mysql_master_slave_06.png)
+![](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/mysql/mysql_master_slave_06.png)
 
 
 
@@ -165,7 +165,7 @@ mysql> show master status;
 
 - 主数据库状态显示如下：
 
-![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/mysql_master_slave_01.png)
+![](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/mysql/mysql_master_slave_01.png)
 
 记住表中的 File 和 Position，后面配置从节点时需用到
 
@@ -207,7 +207,7 @@ mysql> show slave status \G;
 
 - 从数据库状态显示如下：
 
-![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/mysql_master_slave_02.png)
+![](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/mysql/mysql_master_slave_02.png)
 
 - 开启主从同步：
 
@@ -218,7 +218,7 @@ mysql> start slave;
 
 - 查看从数据库状态发现已经同步：
 
-![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/mysql_master_slave_03.png)
+![](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/mysql/mysql_master_slave_03.png)
 
 
 
@@ -228,11 +228,11 @@ mysql> start slave;
 
 - 在主实例中创建一个数据库`mall`；
 
-![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/mysql_master_slave_04.png)
+![](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/mysql/mysql_master_slave_04.png)
 
 - 在从实例中查看数据库，发现也有一个`mall`数据库，可以判断主从复制已经搭建成功。
 
-![](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/mysql/mysql_master_slave_05.png)
+![](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/mysql/mysql_master_slave_05.png)
 
 
 

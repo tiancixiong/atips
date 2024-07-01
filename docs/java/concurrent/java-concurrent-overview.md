@@ -6,21 +6,21 @@
 
 Java 对于并发的支持主要汇聚在 J.U.C。而 J.U.C 的核心是 AQS。
 
-![image-20211027190935750](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/concurrent/java-juc-overview.png)
+![image-20211027190935750](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/concurrent/java-juc-overview.png)
 
 ### Java 并发 - 并发简介
 
 > **关键词：`进程`、`线程`、`安全性`、`活跃性`、`性能`、`死锁`、`饥饿`、`上下文切换`**
 
-![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/concurrent/20200701113445.png)
+![img](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/concurrent/20200701113445.png)
 
 ### Java 并发 - 线程基础
 
 > **关键词：`Thread`、`Runnable`、`Callable`、`Future`、`wait`、`notify`、`notifyAll`、`join`、`sleep`、`yeild`、`线程状态`、`线程通信`**
 
-![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/concurrent/20200630221707.png)
+![img](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/concurrent/20200630221707.png)
 
-![img](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/java/concurrent/java-thread_1.png)
+![img](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/concurrent/java-thread_1.png)
 
 
 

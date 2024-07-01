@@ -251,13 +251,13 @@ elasticsearch.hosts: ["http://192.168.220.132:9200"]
 
 选择 *DevTools* 菜单，即可进入控制台页面：
 
-![image-20211105180705406](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-elasticsearch/image-20211105180705406.png)
+![image-20211105180705406](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-elasticsearch/image-20211105180705406.png)
 
-![image-20211105180753465](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-elasticsearch/image-20211105180753465.png)
+![image-20211105180753465](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-elasticsearch/image-20211105180753465.png)
 
 可以导入simple data：
 
-![image-20211105181104298](//jsd.cdn.zzko.cn/gh/tiancixiong/atips@img-230529/images/database/nosql-elasticsearch/image-20211105181104298.png)
+![image-20211105181104298](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/database/nosql-elasticsearch/image-20211105181104298.png)
 
 
 
