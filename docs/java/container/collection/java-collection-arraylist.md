@@ -36,8 +36,14 @@ ArrayList 提供了三种方式的构造器：
 
   ```java
   // java.util.ArrayList
+  
+  // 一个空的、不可变的 Object[]。此时，数组长度为0，并没有分配容量10
+  // 在第一次调用 add(E e) 添加元素时，才会通过 new Object[10] 创建出一个容量为10的数组
   private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
   
+  /**
+   * Constructs an empty list with an initial capacity of ten.
+   */
   public ArrayList() {
       this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
   }
@@ -99,15 +105,17 @@ private void grow(int minCapacity) {
 }
 ```
 
-![image-20211020095730582](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020095730582.png)
-
-图中介绍了当 List 结合可用空间长度不足时则需要扩容，在 ArrayList 中主要包括如下步骤：
+ArrayList 中扩容主要包括如下步骤：
 
 1. 判断长度充足：`ensureCapacityInternal(size + 1);`；
 
 2. 当判断长度不足时，则通过扩大函数，进行扩容：`grow(int minCapacity)`；
-2. 扩容的长度计算：`int newCapacity = oldCapacity + (oldCapacity >> 1);`，旧容量 + 旧容量右移1位，这相当于扩容了原来容量的 (int) `3/2 = 1.5` 倍 ；
-3. 当扩容完以后，就需要进行把数组中的数据拷贝到新数组中，这个过程会用到 `Arrays.copyOf(elementData, newCapacity);`，但他的底层用到的是：`System.arraycopy`
+3. 扩容的长度计算：`int newCapacity = oldCapacity + (oldCapacity >> 1);`，旧容量 + 旧容量右移1位，这相当于扩容了原来容量的 (int) `3/2 = 1.5` 倍 ；
+4. 当扩容完以后，就需要进行把数组中的数据拷贝到新数组中，这个过程会用到 `Arrays.copyOf(elementData, newCapacity);`，但他的底层用到的是：`System.arraycopy`
+
+ArrayList 集合的扩容与数组拷贝原理示意图：
+
+![image-20211020095730582](//gcore.jsdelivr.net/gh/tiancixiong/atips@img-230529/images/java/container/collection/image-20211020095730582.png)
 
 ---
 
@@ -126,9 +134,9 @@ int newCapacity = oldCapacity + (oldCapacity >> 1);
 
 ### System.arraycopy
 
-当 ArrayList 扩容完以后，就需要通过 `Arrays.copyOf` 把数组中的数据拷贝到新数组中，其底层用到的是：`System. arraycopy`。
+当 ArrayList 扩容完以后，就需要通过 `Arrays.copyOf` 把数组中的数据拷贝到新数组中，其底层用到的是：`System.arraycopy`。
 
-下面通过一个例子了解下 `System. arraycopy` 的使用，这个例子模拟了 ArrayList 元素迁移的效果：
+下面通过一个例子了解下 `System.arraycopy` 的使用，这个例子模拟了 ArrayList 元素迁移的效果：
 
 ```java{5}
 @Test
@@ -180,12 +188,11 @@ public boolean add(E e) {
 ```java{2}
 public static void main(String[] args) {
     List<String> list = new ArrayList<String>(10);
-    list.add(2, "1");
-    System.out.println(list.get(0));
+    list.add(2, "test");
 }
 ```
 
-上面代码执行到 `list.add(2, "1");` 时报错，输出结果：
+上面代码执行到 `list.add(2, "test");` 时报错，输出结果：
 
 ```shell
 Exception in thread "main" java.lang.IndexOutOfBoundsException: Index: 2, Size: 0
@@ -194,7 +201,15 @@ Exception in thread "main" java.lang.IndexOutOfBoundsException: Index: 2, Size: 
 	at com.example.demo.ListDemo.main(ListDemo.java:13)
 ```
 
-为什么会报错呢？看下插入源码：
+**为什么会报错呢？**
+
+核心原因：ArrayList 的 **容量 (Capacity) ≠ 元素个数 (Size)**
+
+代码中 `new ArrayList<String>(10)` 的 `10` 是**初始化底层数组的容量**（即数组能容纳的最大元素数），但此时集合的**实际元素个数 (Size)** 是 `0`；而 `list.add(2, "test")` 是「指定索引插入元素」，这个操作要求 **索引必须 ≤ 当前元素个数**（且≥0），否则会触发 `IndexOutOfBoundsException`。
+
+---
+
+看下插入源码：
 
 ```java
 // java.util.ArrayList
@@ -225,8 +240,8 @@ private void rangeCheckForAdd(int index) {
 `rangeCheckForAdd()`
 
 - 指定位置插入首先要通过 `rangeCheckForAdd` 判断 size（size为ArrayList包含的元素数） 的长度；
-- 每插入一个元素， size 自增一次 `size++`；所有在执行 `list.add(2, "1");` 时 size 的值还是 **0**；
-- 所以即使我们申请了 10 个容量长度的 ArrayList ，但是指定位置插入会依赖于 `size` 进行判断；进行判断时 index 为 2，而 size 为 0。所以会抛出 *IndexOutOfBoundsException* 异常。
+- 每插入一个元素， size 自增一次 `size++`；所以在执行 `list.add(2, "test");` 时 size 的值还是 **0**；
+- 故即使我们申请了 10 个容量长度的 ArrayList ，但是指定位置插入会依赖于 `size` 进行判断；进行判断时 index 为 2，而 size 为 0。所以会抛出 *IndexOutOfBoundsException* 异常。
 
 
 
